@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sinnvoll Dienstleistungen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+
+<!-- PostHog Analytics -->
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_qcWDQrDB82Hes54ztYdXZkhphnSQrvYikcPPRPL6Mr3M', {
+    api_host: 'https://eu.i.posthog.com',
+    person_profiles: 'identified_only'
+  });
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --t: 0.28s cubic-bezier(0.4,0,0.2,1);
+}
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: 'Fjalla One', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  background: var(--white);
+  border-bottom: 1px solid #000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 2.5rem;
+}
+.logo {
+  display: flex; flex-direction: column; gap: 2px;
+  text-decoration: none; color: var(--black);
+}
+.logo-wordmark {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.1rem; line-height: 1; letter-spacing: 0.02em;
+}
+.logo-mark { display: flex; align-items: center; gap: 3px; }
+.logo-sq { width: 18px; height: 18px; background: var(--black); flex-shrink: 0; }
+.logo-ci { width: 18px; height: 18px; background: var(--black); border-radius: 50%; flex-shrink: 0; }
+.logo-sub {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 0.55rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--black);
+  line-height: 1; margin-top: 1px;
+}
+nav { display: flex; gap: 2rem; align-items: center; }
+nav a {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 0.72rem; letter-spacing: 0.14em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--black); transition: opacity var(--t);
+}
+nav a:hover { opacity: 0.45; }
+.nav-kontakt {
+  background: var(--black) !important; color: var(--white) !important;
+  padding: 0.5rem 1.2rem;
+}
+.nav-kontakt:hover { opacity: 0.75 !important; }
+
+/* ── HERO ── */
+#hero {
+  padding-top: 65px;
+  padding-left: 2.5rem; padding-right: 2.5rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #000;
+}
+.hero-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.22em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 0.7rem;
+  padding-top: 3rem; margin-bottom: 1.8rem; color: #555;
+}
+.hero-eyebrow::before {
+  content: ''; width: 12px; height: 12px;
+  background: var(--black); flex-shrink: 0;
+}
+.hero-eyebrow::after {
+  content: ''; width: 12px; height: 12px;
+  background: var(--black); border-radius: 50%; flex-shrink: 0;
+}
+h1 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 0.92; text-transform: uppercase;
+  letter-spacing: -0.01em; margin-bottom: 2rem;
+}
+h1 .outline {
+  -webkit-text-stroke: 2px var(--black); color: transparent;
+}
+.hero-sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.05rem; font-weight: 300;
+  line-height: 1.72; max-width: 540px; color: #333;
+}
+.hero-sub strong {
+  font-weight: 400; color: var(--black);
+  font-family: 'Fjalla One', sans-serif;
+}
+
+/* ── KACHELN ── */
+#leistungen { background: var(--black); }
+
+.section-label {
+  padding: 1.8rem 2.5rem 0;
+  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.section-label::before {
+  content: ''; width: 9px; height: 9px;
+  background: rgba(255,255,255,0.35); flex-shrink: 0;
+}
+.section-label::after {
+  content: ''; width: 9px; height: 9px;
+  background: rgba(255,255,255,0.35); border-radius: 50%; flex-shrink: 0;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  padding: 2rem 2.5rem 2.5rem;
+  background: rgba(255,255,255,0.08);
+}
+
+.tile {
+  background: var(--black);
+  min-height: 300px;
+  padding: 2.5rem 2.2rem 2rem;
+  cursor: pointer;
+  position: relative;
+  display: flex; flex-direction: column; justify-content: space-between;
+  transition: background var(--t);
+  border: none; text-align: left; width: 100%;
+}
+.tile:hover { background: #111; }
+.tile:hover .tile-arrow { transform: translateX(5px); }
+.tile:hover .tile-shape { transform: scale(1.06); }
+
+.tile-top { display: flex; flex-direction: column; gap: 1.6rem; }
+
+.tile-number {
+  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+}
+
+.tile-shape { transition: transform var(--t); }
+.s-sq { width: 48px; height: 48px; background: var(--white); }
+.s-ci { width: 48px; height: 48px; background: var(--white); border-radius: 50%; }
+
+.tile-title {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  line-height: 0.95; text-transform: uppercase;
+  color: var(--white);
+}
+
+.tile-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+}
+.tile-tagline {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.8rem; font-weight: 300;
+  color: rgba(255,255,255,0.4);
+}
+.tile-arrow {
+  font-size: 1.2rem; color: rgba(255,255,255,0.6);
+  transition: transform var(--t);
+}
+
+.tiles-footer {
+  padding: 1.5rem 2.5rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.68rem; font-weight: 300;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+/* ── A/B VARIANT B: LIST ── */
+.service-list {
+  list-style: none;
+  padding: 0 2.5rem;
+  display: none;
+}
+.service-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.service-item:first-child { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1.8rem; }
+.service-btn {
+  width: 100%; background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: 1.6rem 0; text-align: left;
+  transition: opacity var(--t);
+}
+.service-btn:hover { opacity: 0.55; }
+.service-btn:hover .svc-arrow { transform: translateX(5px); }
+.svc-left { display: flex; align-items: center; gap: 1.8rem; }
+.svc-num {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.3); min-width: 24px;
+}
+.svc-shape { flex-shrink: 0; }
+.svc-sq { width: 22px; height: 22px; background: var(--white); }
+.svc-ci { width: 22px; height: 22px; background: var(--white); border-radius: 50%; }
+.svc-name {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2.6rem);
+  text-transform: uppercase; line-height: 1; color: var(--white);
+}
+.svc-tag {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.78rem; font-weight: 300;
+  color: rgba(255,255,255,0.35); white-space: nowrap;
+}
+.svc-arrow { font-size: 1.2rem; color: rgba(255,255,255,0.5); transition: transform var(--t); flex-shrink: 0; }
+
+/* ── OVERLAY / PANEL ── */
+.overlay {
+  position: fixed; inset: 0; z-index: 600;
+  background: rgba(0,0,0,0);
+  pointer-events: none;
+  transition: background 0.35s ease;
+}
+.overlay.open { background: rgba(0,0,0,0.55); pointer-events: all; }
+
+.panel {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: min(640px, 100%);
+  background: var(--white);
+  z-index: 700;
+  transform: translateX(100%);
+  transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
+  display: flex; flex-direction: column;
+  overflow-y: auto;
+}
+.panel.open { transform: translateX(0); }
+
+.panel-header {
+  position: sticky; top: 0;
+  background: var(--black);
+  padding: 1.6rem 2rem;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  flex-shrink: 0;
+}
+.panel-title-wrap { display: flex; flex-direction: column; gap: 0.4rem; }
+.panel-number {
+  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.panel-title {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  text-transform: uppercase; line-height: 0.95;
+  color: var(--white);
+}
+.panel-shape { margin-top: 0.5rem; }
+.ps-sq { width: 28px; height: 28px; background: var(--white); }
+.ps-ci { width: 28px; height: 28px; background: var(--white); border-radius: 50%; }
+
+.panel-close {
+  background: none; border: none; cursor: pointer;
+  color: var(--white); font-size: 1.4rem; line-height: 1;
+  padding: 0.2rem; flex-shrink: 0;
+  font-family: 'Barlow', sans-serif; font-weight: 300;
+  opacity: 0.6; transition: opacity var(--t);
+}
+.panel-close:hover { opacity: 1; }
+
+.panel-body { padding: 2.5rem 2rem; flex: 1; }
+
+.panel-lead {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.3rem; text-transform: uppercase;
+  line-height: 1.2; margin-bottom: 1.2rem; letter-spacing: 0.01em;
+}
+.panel-text {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.98rem; font-weight: 300;
+  line-height: 1.78; color: #333; margin-bottom: 2rem;
+}
+.panel-list { list-style: none; margin-bottom: 2.5rem; }
+.panel-list li {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9rem; font-weight: 400;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ebebeb;
+  display: flex; align-items: center; gap: 0.9rem; color: #111;
+}
+.panel-list li::before {
+  content: ''; width: 8px; height: 8px;
+  background: var(--black); flex-shrink: 0;
+}
+.panel-list li.ci-item::before { border-radius: 50%; }
+
+.panel-divider { border: none; border-top: 2px solid var(--black); margin: 2rem 0; }
+
+.panel-form-title {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.4rem; text-transform: uppercase; margin-bottom: 1.5rem;
+}
+.form-field { border-bottom: 1px solid #000; margin-bottom: 0; }
+.form-field label {
+  display: block; font-size: 0.62rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #888;
+  padding-top: 1.2rem; padding-bottom: 0.25rem;
+}
+.form-field input, .form-field textarea {
+  width: 100%; background: transparent; border: none; outline: none;
+  font-family: 'Barlow', sans-serif; font-weight: 300;
+  font-size: 1rem; color: var(--black); padding-bottom: 0.9rem;
+}
+.form-field textarea { resize: none; min-height: 80px; line-height: 1.6; }
+.form-field input::placeholder, .form-field textarea::placeholder { color: #bbb; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.5rem; }
+
+.form-submit { margin-top: 2rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.btn-submit {
+  background: var(--black); color: var(--white);
+  border: none; padding: 0.9rem 2rem;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
+  cursor: pointer; transition: opacity var(--t);
+}
+.btn-submit:hover { opacity: 0.75; }
+.form-hint {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.72rem; font-weight: 300; color: #888; line-height: 1.5;
+}
+.form-ok {
+  display: none; margin-top: 1.5rem;
+  font-family: 'Barlow', sans-serif; font-size: 0.9rem;
+  border-left: 3px solid var(--black); padding-left: 1rem; line-height: 1.6;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black); color: var(--white);
+  padding: 2.5rem 2.5rem 2rem;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-logo { display: flex; flex-direction: column; gap: 3px; }
+.footer-wordmark { font-family: 'Fjalla One', sans-serif; font-size: 1.2rem; }
+.footer-mark-row { display: flex; align-items: center; gap: 4px; }
+.f-sq { width: 20px; height: 20px; background: var(--white); }
+.f-ci { width: 20px; height: 20px; background: var(--white); border-radius: 50%; }
+.footer-sub { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.footer-links { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
+.footer-links a {
+  font-family: 'Barlow', sans-serif; font-size: 0.78rem; font-weight: 300;
+  color: rgba(255,255,255,0.5); text-decoration: none; transition: color var(--t);
+}
+.footer-links a:hover { color: var(--white); }
+.footer-bottom {
+  width: 100%; border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.2rem; margin-top: 0.5rem;
+  font-family: 'Barlow', sans-serif; font-size: 0.68rem; font-weight: 300;
+  color: rgba(255,255,255,0.25); letter-spacing: 0.06em;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+}
+.footer-bottom a { color: rgba(255,255,255,0.25); text-decoration: none; }
+.footer-bottom a:hover { color: rgba(255,255,255,0.6); }
+
+/* ── RESPONSIVE ── */
+@media(max-width: 768px) {
+  header { padding: 0.8rem 1.2rem; }
+  nav a:not(.nav-kontakt) { display: none; }
+  #hero { padding-left: 1.2rem; padding-right: 1.2rem; padding-bottom: 2.5rem; }
+  .hero-eyebrow { padding-top: 2rem; }
+  .tiles { grid-template-columns: 1fr; padding: 1.2rem; }
+  .tile { min-height: 220px; padding: 2rem 1.5rem 1.6rem; }
+  .section-label { padding: 1.5rem 1.2rem 0; }
+  .tiles-footer { padding: 1.2rem; }
+  footer { padding: 2rem 1.2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+  .panel { width: 100%; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="#">
+    <div class="logo-wordmark">Sinnvoll</div>
+    <div class="logo-mark">
+      <div class="logo-sq"></div>
+      <div class="logo-ci"></div>
+    </div>
+    <div class="logo-sub">Dienstleistungen</div>
+  </a>
+  <nav>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#" class="nav-kontakt" onclick="openPanel(0);return false;">Kontakt anfragen</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-eyebrow">Von der Region. Für die Region.</div>
+  <h1>
+    Nicht alles<br/>
+    macht Sinn.<br/>
+    <span class="outline">Aber Sinnvoll.</span>
+  </h1>
+  <p class="hero-sub">
+    Wir sind Gastronomen. In 15 eigenen Betrieben haben wir aufgebaut,
+    was funktioniert – <strong>Finanzen, HR, Systeme, Marketing.</strong><br/>
+    Dieses Wissen bringen wir jetzt direkt in Ihren Betrieb.
+  </p>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="leistungen">
+  <div class="section-label">Was wir können</div>
+  <div class="tiles">
+
+    <button class="tile" onclick="openPanel(0)">
+      <div class="tile-top">
+        <span class="tile-number">01</span>
+        <div class="tile-shape"><div class="s-sq"></div></div>
+        <div class="tile-title">Finanz &amp;<br/>Controlling</div>
+      </div>
+      <div class="tile-footer">
+        <span class="tile-tagline">Zahlen, die stimmen.</span>
+        <span class="tile-arrow">→</span>
+      </div>
+    </button>
+
+    <button class="tile" onclick="openPanel(1)">
+      <div class="tile-top">
+        <span class="tile-number">02</span>
+        <div class="tile-shape"><div class="s-ci"></div></div>
+        <div class="tile-title">Human<br/>Resources</div>
+      </div>
+      <div class="tile-footer">
+        <span class="tile-tagline">Menschen, die bleiben.</span>
+        <span class="tile-arrow">→</span>
+      </div>
+    </button>
+
+    <button class="tile" onclick="openPanel(2)">
+      <div class="tile-top">
+        <span class="tile-number">03</span>
+        <div class="tile-shape"><div class="s-ci"></div></div>
+        <div class="tile-title">System&shy;integration</div>
+      </div>
+      <div class="tile-footer">
+        <span class="tile-tagline">Technik, die läuft.</span>
+        <span class="tile-arrow">→</span>
+      </div>
+    </button>
+
+    <button class="tile" onclick="openPanel(3)">
+      <div class="tile-top">
+        <span class="tile-number">04</span>
+        <div class="tile-shape"><div class="s-sq"></div></div>
+        <div class="tile-title">Marketing<br/>&amp; Design</div>
+      </div>
+      <div class="tile-footer">
+        <span class="tile-tagline">Auftritte, die haften.</span>
+        <span class="tile-arrow">→</span>
+      </div>
+    </button>
+
+  </div>
+  <div class="tiles-footer">Sinnvoll Dienstleistungen · Luzern · sinnvollgastro.ch</div>
+
+  <!-- VARIANT B: List -->
+  <ul class="service-list" id="serviceList">
+    <li class="service-item">
+      <button class="service-btn" onclick="openPanel(0)">
+        <div class="svc-left">
+          <span class="svc-num">01</span>
+          <div class="svc-shape"><div class="svc-sq"></div></div>
+          <span class="svc-name">Finanz &amp; Controlling</span>
+        </div>
+        <span class="svc-tag">Zahlen, die stimmen.</span>
+        <span class="svc-arrow">→</span>
+      </button>
+    </li>
+    <li class="service-item">
+      <button class="service-btn" onclick="openPanel(1)">
+        <div class="svc-left">
+          <span class="svc-num">02</span>
+          <div class="svc-shape"><div class="svc-ci"></div></div>
+          <span class="svc-name">Human Resources</span>
+        </div>
+        <span class="svc-tag">Menschen, die bleiben.</span>
+        <span class="svc-arrow">→</span>
+      </button>
+    </li>
+    <li class="service-item">
+      <button class="service-btn" onclick="openPanel(2)">
+        <div class="svc-left">
+          <span class="svc-num">03</span>
+          <div class="svc-shape"><div class="svc-ci"></div></div>
+          <span class="svc-name">Systemintegration</span>
+        </div>
+        <span class="svc-tag">Technik, die läuft.</span>
+        <span class="svc-arrow">→</span>
+      </button>
+    </li>
+    <li class="service-item">
+      <button class="service-btn" onclick="openPanel(3)">
+        <div class="svc-left">
+          <span class="svc-num">04</span>
+          <div class="svc-shape"><div class="svc-sq"></div></div>
+          <span class="svc-name">Marketing &amp; Design</span>
+        </div>
+        <span class="svc-tag">Auftritte, die haften.</span>
+        <span class="svc-arrow">→</span>
+      </button>
+    </li>
+  </ul>
+  <div class="tiles-footer" id="listFooter" style="display:none;">Sinnvoll Dienstleistungen · Luzern · sinnvollgastro.ch</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <div class="footer-wordmark">Sinnvoll</div>
+    <div class="footer-mark-row">
+      <div class="f-sq"></div>
+      <div class="f-ci"></div>
+    </div>
+    <div class="footer-sub">Dienstleistungen · Luzern</div>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.sinnvollgastro.ch" target="_blank">sinnvollgastro.ch</a>
+    <a href="/cdn-cgi/l/email-protection#8be2e5ede4cbf8e2e5e5fde4e7e7eceaf8fff9e4a5e8e3"><span class="__cf_email__" data-cfemail="8ae3e4ece5caf9e3e4e4fce5e6e6edebf9fef8e5a4e9e2">[email&#160;protected]</span></a>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sinnvoll Dienstleistungen GmbH · Luzern</span>
+    <span style="display:flex;gap:1.2rem;">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </span>
+  </div>
+</footer>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closePanel()"></div>
+
+<!-- PANEL -->
+<div class="panel" id="panel" role="dialog" aria-modal="true">
+  <div class="panel-header">
+    <div class="panel-title-wrap">
+      <span class="panel-number" id="panelNumber"></span>
+      <h2 class="panel-title" id="panelTitle"></h2>
+      <div class="panel-shape" id="panelShape"></div>
+    </div>
+    <button class="panel-close" onclick="closePanel()" aria-label="Schliessen">✕</button>
+  </div>
+  <div class="panel-body" id="panelBody"></div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const services = [
+  {
+    number: '01',
+    title: 'Finanz & Controlling',
+    shape: 'sq',
+    lead: 'Klare Zahlen. Klare Entscheide.',
+    text: 'Gastronomiebetriebe scheitern selten an schlechtem Essen – oft an fehlender Übersicht. Unsere Finanzspezialisten kennen die Branche aus 15 eigenen Häusern und bringen echtes Praxiswissen mit: Was kostet eine Küche wirklich? Wo verstecken sich Margen? Wie plant man saisonal? Wir machen Ihre Zahlen zur Führungsstärke.',
+    bullets: [
+      {text: 'Finanzbuchhaltung & Reporting (Abacus)', ci: false},
+      {text: 'Liquiditätsplanung & Kostenoptimierung', ci: true},
+      {text: 'Controlling-Systeme aufbauen & einführen', ci: false},
+      {text: 'Jahresabschluss & Budgetierung', ci: true},
+      {text: 'KPI-Dashboards für Gastrobetriebe', ci: false},
+    ]
+  },
+  {
+    number: '02',
+    title: 'Human Resources',
+    shape: 'ci',
+    lead: 'Die richtigen Menschen. Zur richtigen Zeit.',
+    text: 'In der Gastronomie entscheiden Menschen alles. Wir helfen Ihnen, ein Team aufzubauen, das bleibt – mit einem Recruiting-Prozess, der funktioniert, einer Führungskultur, die motiviert, und HR-Strukturen, die den Schweizer Anforderungen entsprechen. Aus der Praxis, nicht aus dem Lehrbuch.',
+    bullets: [
+      {text: 'Recruiting & strukturiertes Onboarding', ci: true},
+      {text: 'Lohnwesen & Arbeitsrecht Schweiz', ci: false},
+      {text: 'Mitarbeiterentwicklung & Schulungen', ci: true},
+      {text: 'Employer Branding für Gastrobetriebe', ci: false},
+      {text: 'Führungskultur & Teamstruktur', ci: true},
+    ]
+  },
+  {
+    number: '03',
+    title: 'Systemintegration',
+    shape: 'ci',
+    lead: 'Systeme, die zusammenarbeiten. Prozesse, die sich selbst erledigen.',
+    text: 'Wir nutzen MEWS, Abacus und weitere Systeme täglich in unseren eigenen Betrieben. Wir wissen, was funktioniert – und was nicht. Wir analysieren Ihren bestehenden Techstack, identifizieren Redundanzen, schliessen Lücken und automatisieren, was automatisiert gehört. Mit gezielten API-Anbindungen verbinden wir Systeme, die bisher nicht miteinander sprachen. Und wir begleiten Sie auf dem Weg in eine sinnvoll eingesetzte, zukunftsfähige Technologie – inklusive KI-Tools dort, wo sie echten Nutzen bringen.',
+    bullets: [
+      {text: 'MEWS PMS Implementierung & Schulung', ci: false},
+      {text: 'Abacus ERP & Lohnwesen Integration', ci: true},
+      {text: 'Kassensysteme & POS-Anbindungen', ci: false},
+      {text: 'API-Anbindungen & Systemvernetzung', ci: true},
+      {text: 'Prozessautomatisierung & Workflows', ci: false},
+      {text: 'Techstack-Analyse & Optimierung', ci: true},
+      {text: 'KI-Tools & AI-Unterstützung im Betrieb', ci: false},
+    ]
+  },
+  {
+    number: '04',
+    title: 'Marketing & Design',
+    shape: 'sq',
+    lead: 'Sichtbar sein. Erkannt werden. Im Gedächtnis bleiben.',
+    text: 'Ein gutes Produkt verdient einen starken Auftritt. Wir gestalten Identitäten und Kommunikation für Gastrobetriebe, die herausstechen wollen – konsistent, mutig und mit echtem Gastro-Verständnis. Von der Visitenkarte bis zur digitalen Kampagne, alles aus einer Hand.',
+    bullets: [
+      {text: 'Brand Identity & Corporate Design', ci: true},
+      {text: 'Digitales Marketing & Social Media', ci: false},
+      {text: 'Webdesign & Online-Präsenz', ci: true},
+      {text: 'Fotografie & Content-Produktion', ci: false},
+      {text: 'Menükarten, Print & Signaletik', ci: true},
+    ]
+  }
+];
+
+let currentIdx = null;
+
+function openPanel(idx) {
+  const s = services[idx];
+  currentIdx = idx;
+  document.getElementById('panelNumber').textContent = s.number + ' — Sinnvoll Dienstleistungen';
+  document.getElementById('panelTitle').textContent = s.title;
+  document.getElementById('panelShape').innerHTML =
+    s.shape === 'sq' ? '<div class="ps-sq"></div>' : '<div class="ps-ci"></div>';
+
+  const bullets = s.bullets.map(b =>
+    `<li class="${b.ci ? 'ci-item' : ''}">${b.text}</li>`
+  ).join('');
+
+  document.getElementById('panelBody').innerHTML = `
+    <div class="panel-lead">${s.lead}</div>
+    <p class="panel-text">${s.text}</p>
+    <ul class="panel-list">${bullets}</ul>
+    <hr class="panel-divider"/>
+    <div class="panel-form-title">Gespräch anfragen.</div>
+    <form onsubmit="submitForm(event,this)">
+      <div class="form-row">
+        <div class="form-field">
+          <label>Name</label>
+          <input type="text" placeholder="Ihr Name" required/>
+        </div>
+        <div class="form-field">
+          <label>Betrieb</label>
+          <input type="text" placeholder="Restaurant / Hotel"/>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>E-Mail</label>
+        <input type="email" placeholder="ihre@email.ch" required/>
+      </div>
+      <div class="form-field">
+        <label>Nachricht</label>
+        <textarea placeholder="Was können wir für Sie tun?"></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-submit">Anfrage senden →</button>
+        <p class="form-hint">Wir melden uns innerhalb<br/>von 24 Stunden.</p>
+      </div>
+      <div class="form-ok">Vielen Dank für Ihre Anfrage.<br/>Wir melden uns bald bei Ihnen.</div>
+    </form>
+  `;
+
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('panel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('panel').scrollTop = 0;
+  trackPanelOpen(idx);
+}
+
+function closePanel() {
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('panel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function submitForm(e, form) {
+  e.preventDefault();
+  form.querySelector('.form-ok').style.display = 'block';
+  const btn = form.querySelector('.btn-submit');
+  btn.textContent = 'Gesendet ✓';
+  btn.disabled = true;
+  btn.style.opacity = '0.4';
+  trackFormSubmit(currentIdx);
+}
+
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closePanel(); });
+
+// ── POSTHOG TRACKING ──
+function trackPanelOpen(idx) {
+  const names = ['Finanz & Controlling','Human Resources','Systemintegration','Marketing & Design'];
+  posthog.capture('panel_opened', { service: names[idx], index: idx });
+}
+
+function trackFormSubmit(idx) {
+  const names = ['Finanz & Controlling','Human Resources','Systemintegration','Marketing & Design'];
+  posthog.capture('form_submitted', { service: names[idx], index: idx });
+}
+
+// ── POSTHOG A/B TEST ──
+// Feature flag name: 'leistungen-layout'
+// Variants: 'control' = Kacheln (A), 'list' = Liste (B)
+function applyVariant(variant) {
+  const tiles       = document.querySelector('.tiles');
+  const tilesFooter = document.querySelector('.tiles-footer');
+  const list        = document.getElementById('serviceList');
+  const listFooter  = document.getElementById('listFooter');
+
+  if (variant === 'list') {
+    tiles.style.display       = 'none';
+    tilesFooter.style.display = 'none';
+    list.style.display        = 'block';
+    listFooter.style.display  = 'block';
+    posthog.capture('variant_seen', { variant: 'list' });
+  } else {
+    posthog.capture('variant_seen', { variant: 'tiles' });
+  }
+}
+
+posthog.onFeatureFlags(function() {
+  const flag = posthog.getFeatureFlag('leistungen-layout');
+  applyVariant(flag === 'list' ? 'list' : 'tiles');
+});
+
+posthog.capture('pageview', { page: 'sinnvoll-dienstleistungen' });
+</script>
+</body>
+</html>
