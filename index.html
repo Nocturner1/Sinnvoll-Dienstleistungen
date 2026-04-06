@@ -6,276 +6,160 @@
 <title>Sinnvoll Dienstleistungen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
-
 <!-- PostHog Analytics -->
 <script>
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-  posthog.init('phc_qcWDQrDB82Hes54ztYdXZkhphnSQrvYikcPPRPL6Mr3M', {
-    api_host: 'https://eu.i.posthog.com',
-    person_profiles: 'identified_only'
-  });
+  posthog.init('phc_qcWDQrDB82Hes54ztYdXZkhphnSQrvYikcPPRPL6Mr3M',{api_host:'https://eu.i.posthog.com',person_profiles:'identified_only'});
 </script>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{--black:#000000;--white:#ffffff;--t:0.28s cubic-bezier(0.4,0,0.2,1);}
 
-:root {
-  --black: #000000;
-  --white: #ffffff;
-  --t: 0.28s cubic-bezier(0.4,0,0.2,1);
-}
+body{background:var(--white);color:var(--black);font-family:'Fjalla One',sans-serif;overflow-x:hidden;}
 
-body {
-  background: var(--white);
-  color: var(--black);
-  font-family: 'Fjalla One', sans-serif;
-  overflow-x: hidden;
-}
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:500;background:var(--white);border-bottom:1px solid #000;display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2.5rem;}
+.logo{display:flex;flex-direction:column;gap:2px;text-decoration:none;color:var(--black);}
+.logo-wordmark{font-family:'Fjalla One',sans-serif;font-size:1.15rem;line-height:1;letter-spacing:0.02em;}
+.logo-mark{display:flex;align-items:center;gap:3px;}
+.logo-sq{width:18px;height:18px;background:var(--black);flex-shrink:0;}
+.logo-ci{width:18px;height:18px;background:var(--black);border-radius:50%;flex-shrink:0;}
+.logo-sub{font-family:'Fjalla One',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--black);line-height:1;margin-top:1px;}
+nav{display:flex;gap:1.5rem;align-items:center;}
+nav a{font-family:'Fjalla One',sans-serif;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:var(--black);transition:opacity var(--t);}
+nav a:hover{opacity:0.45;}
+.nav-kontakt{background:var(--black)!important;color:var(--white)!important;padding:0.5rem 1.2rem;}
+.nav-kontakt:hover{opacity:0.75!important;}
+.lang-switch{display:flex;align-items:center;border:1px solid var(--black);}
+.lang-btn{background:none;border:none;cursor:pointer;padding:0.38rem 0.65rem;font-family:'Fjalla One',sans-serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--black);transition:background var(--t),color var(--t);}
+.lang-btn.active{background:var(--black);color:var(--white);}
+.lang-btn:not(.active):hover{opacity:0.5;}
 
-/* ── HEADER ── */
-header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
-  background: var(--white);
-  border-bottom: 1px solid #000;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0.9rem 2.5rem;
-}
-.logo {
-  display: flex; flex-direction: column; gap: 2px;
-  text-decoration: none; color: var(--black);
-}
-.logo-wordmark { font-family: 'Fjalla One', sans-serif; font-size: 1.1rem; line-height: 1; letter-spacing: 0.02em; }
-.logo-mark { display: flex; align-items: center; gap: 3px; }
-.logo-sq { width: 18px; height: 18px; background: var(--black); flex-shrink: 0; }
-.logo-ci { width: 18px; height: 18px; background: var(--black); border-radius: 50%; flex-shrink: 0; }
-.logo-sub { font-family: 'Fjalla One', sans-serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); line-height: 1; margin-top: 1px; }
+/* HERO */
+#hero{padding-top:65px;padding-left:2.5rem;padding-right:2.5rem;padding-bottom:4rem;border-bottom:1px solid #000;}
+.hero-eyebrow{font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;display:flex;align-items:center;gap:0.7rem;padding-top:3rem;margin-bottom:1.8rem;color:#555;}
+.hero-eyebrow::before{content:'';width:12px;height:12px;background:var(--black);flex-shrink:0;}
+.hero-eyebrow::after{content:'';width:12px;height:12px;background:var(--black);border-radius:50%;flex-shrink:0;}
+h1{font-family:'Fjalla One',sans-serif;font-size:clamp(3.2rem,8vw,8.5rem);line-height:0.92;text-transform:uppercase;letter-spacing:-0.01em;margin-bottom:2rem;}
+h1 .outline{-webkit-text-stroke:2px var(--black);color:transparent;}
+.hero-sub{font-family:'Barlow',sans-serif;font-size:1.12rem;font-weight:300;line-height:1.72;max-width:540px;color:#333;}
+.hero-sub strong{font-weight:400;color:var(--black);font-family:'Fjalla One',sans-serif;}
 
-nav { display: flex; gap: 1.5rem; align-items: center; }
-nav a {
-  font-family: 'Fjalla One', sans-serif;
-  font-size: 0.72rem; letter-spacing: 0.14em;
-  text-transform: uppercase; text-decoration: none;
-  color: var(--black); transition: opacity var(--t);
-}
-nav a:hover { opacity: 0.45; }
-.nav-kontakt {
-  background: var(--black) !important; color: var(--white) !important;
-  padding: 0.5rem 1.2rem;
-}
-.nav-kontakt:hover { opacity: 0.75 !important; }
+/* LEISTUNGEN */
+#leistungen{background:var(--black);}
+.section-label{padding:1.8rem 2.5rem 0;font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:0.6rem;}
+.section-label::before{content:'';width:9px;height:9px;background:rgba(255,255,255,0.35);flex-shrink:0;}
+.section-label::after{content:'';width:9px;height:9px;background:rgba(255,255,255,0.35);border-radius:50%;flex-shrink:0;}
 
-/* Language switcher */
-.lang-switch {
-  display: flex; align-items: center; gap: 0;
-  border: 1px solid var(--black);
-  font-family: 'Fjalla One', sans-serif;
-  font-size: 0.65rem; letter-spacing: 0.12em;
-}
-.lang-btn {
-  background: none; border: none; cursor: pointer;
-  padding: 0.35rem 0.6rem;
-  font-family: 'Fjalla One', sans-serif;
-  font-size: 0.65rem; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--black);
-  transition: background var(--t), color var(--t);
-}
-.lang-btn.active { background: var(--black); color: var(--white); }
-.lang-btn:not(.active):hover { opacity: 0.5; }
+/* TILES */
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;padding:2rem 2.5rem 2.5rem;background:rgba(255,255,255,0.08);}
+.tile{background:var(--black);min-height:300px;padding:2.5rem 2.2rem 2rem;cursor:pointer;position:relative;display:flex;flex-direction:column;justify-content:space-between;transition:background var(--t);border:none;text-align:left;width:100%;}
+.tile:hover{background:#111;}
+.tile:hover .tile-arrow{transform:translateX(5px);}
+.tile:hover .tile-shape{transform:scale(1.06);}
+.tile-top{display:flex;flex-direction:column;gap:1.6rem;}
+.tile-number{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.28);}
+.tile-shape{transition:transform var(--t);}
+.s-sq{width:48px;height:48px;background:var(--white);}
+.s-ci{width:48px;height:48px;background:var(--white);border-radius:50%;}
+.tile-title{font-family:'Fjalla One',sans-serif;font-size:clamp(1.7rem,3vw,2.8rem);line-height:0.95;text-transform:uppercase;color:var(--white);}
+.tile-footer{display:flex;align-items:center;justify-content:space-between;margin-top:2rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;}
+.tile-tagline{font-family:'Barlow',sans-serif;font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.4);}
+.tile-arrow{font-size:1.2rem;color:rgba(255,255,255,0.6);transition:transform var(--t);}
+.tiles-footer{padding:1.5rem 2.5rem;font-family:'Barlow',sans-serif;font-size:0.72rem;font-weight:300;color:rgba(255,255,255,0.2);letter-spacing:0.1em;text-transform:uppercase;}
 
-/* ── HERO ── */
-#hero {
-  padding-top: 65px;
-  padding-left: 2.5rem; padding-right: 2.5rem;
-  padding-bottom: 4rem;
-  border-bottom: 1px solid #000;
-}
-.hero-eyebrow {
-  font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
-  display: flex; align-items: center; gap: 0.7rem;
-  padding-top: 3rem; margin-bottom: 1.8rem; color: #555;
-}
-.hero-eyebrow::before { content: ''; width: 12px; height: 12px; background: var(--black); flex-shrink: 0; }
-.hero-eyebrow::after  { content: ''; width: 12px; height: 12px; background: var(--black); border-radius: 50%; flex-shrink: 0; }
+/* LIST VARIANT */
+.service-list{list-style:none;padding:0 2.5rem;display:none;}
+.service-item{border-bottom:1px solid rgba(255,255,255,0.1);}
+.service-item:first-child{border-top:1px solid rgba(255,255,255,0.1);margin-top:1.8rem;}
+.service-btn{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.6rem 0;text-align:left;transition:opacity var(--t);}
+.service-btn:hover{opacity:0.55;}
+.service-btn:hover .svc-arrow{transform:translateX(5px);}
+.svc-left{display:flex;align-items:center;gap:1.8rem;}
+.svc-num{font-family:'Fjalla One',sans-serif;font-size:0.72rem;letter-spacing:0.2em;color:rgba(255,255,255,0.3);min-width:24px;}
+.svc-shape{flex-shrink:0;}
+.svc-sq{width:22px;height:22px;background:var(--white);}
+.svc-ci{width:22px;height:22px;background:var(--white);border-radius:50%;}
+.svc-name{font-family:'Fjalla One',sans-serif;font-size:clamp(1.5rem,3vw,2.7rem);text-transform:uppercase;line-height:1;color:var(--white);}
+.svc-tag{font-family:'Barlow',sans-serif;font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.35);white-space:nowrap;}
+.svc-arrow{font-size:1.2rem;color:rgba(255,255,255,0.5);transition:transform var(--t);flex-shrink:0;}
 
-h1 {
-  font-family: 'Fjalla One', sans-serif;
-  font-size: clamp(3rem, 8vw, 8rem);
-  line-height: 0.92; text-transform: uppercase;
-  letter-spacing: -0.01em; margin-bottom: 2rem;
-}
-h1 .outline { -webkit-text-stroke: 2px var(--black); color: transparent; }
+/* OVERLAY / PANEL */
+.overlay{position:fixed;inset:0;z-index:600;background:rgba(0,0,0,0);pointer-events:none;transition:background 0.35s ease;}
+.overlay.open{background:rgba(0,0,0,0.55);pointer-events:all;}
+.panel{position:fixed;top:0;right:0;bottom:0;width:min(640px,100%);background:var(--white);z-index:700;transform:translateX(100%);transition:transform 0.38s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;}
+.panel.open{transform:translateX(0);}
+.panel-header{position:sticky;top:0;background:var(--black);padding:1.6rem 2rem;display:flex;align-items:flex-start;justify-content:space-between;flex-shrink:0;}
+.panel-title-wrap{display:flex;flex-direction:column;gap:0.4rem;}
+.panel-number{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.panel-title{font-family:'Fjalla One',sans-serif;font-size:clamp(1.9rem,4vw,3rem);text-transform:uppercase;line-height:0.95;color:var(--white);}
+.panel-shape{margin-top:0.5rem;}
+.ps-sq{width:28px;height:28px;background:var(--white);}
+.ps-ci{width:28px;height:28px;background:var(--white);border-radius:50%;}
+.panel-close{background:none;border:none;cursor:pointer;color:var(--white);font-size:1.4rem;line-height:1;padding:0.2rem;flex-shrink:0;font-family:'Barlow',sans-serif;font-weight:300;opacity:0.6;transition:opacity var(--t);}
+.panel-close:hover{opacity:1;}
+.panel-body{padding:2.5rem 2rem;flex:1;}
+.panel-lead{font-family:'Fjalla One',sans-serif;font-size:1.4rem;text-transform:uppercase;line-height:1.2;margin-bottom:1.2rem;letter-spacing:0.01em;}
+.panel-text{font-family:'Barlow',sans-serif;font-size:1.05rem;font-weight:300;line-height:1.78;color:#333;margin-bottom:2rem;}
+.panel-list{list-style:none;margin-bottom:2.5rem;}
+.panel-list li{font-family:'Barlow',sans-serif;font-size:0.98rem;font-weight:400;padding:0.75rem 0;border-bottom:1px solid #ebebeb;display:flex;align-items:center;gap:0.9rem;color:#111;}
+.panel-list li::before{content:'';width:8px;height:8px;background:var(--black);flex-shrink:0;}
+.panel-list li.ci-item::before{border-radius:50%;}
+.panel-divider{border:none;border-top:2px solid var(--black);margin:2rem 0;}
+.panel-form-title{font-family:'Fjalla One',sans-serif;font-size:1.5rem;text-transform:uppercase;margin-bottom:1.5rem;}
+.form-field{border-bottom:1px solid #000;margin-bottom:0;}
+.form-field label{display:block;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:#888;padding-top:1.2rem;padding-bottom:0.25rem;}
+.form-field input,.form-field textarea{width:100%;background:transparent;border:none;outline:none;font-family:'Barlow',sans-serif;font-weight:300;font-size:1.05rem;color:var(--black);padding-bottom:0.9rem;}
+.form-field textarea{resize:none;min-height:80px;line-height:1.6;}
+.form-field input::placeholder,.form-field textarea::placeholder{color:#bbb;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1.5rem;}
+.form-submit{margin-top:2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.btn-submit{background:var(--black);color:var(--white);border:none;padding:0.9rem 2rem;font-family:'Fjalla One',sans-serif;font-size:0.85rem;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;transition:opacity var(--t);}
+.btn-submit:hover{opacity:0.75;}
+.form-hint{font-family:'Barlow',sans-serif;font-size:0.78rem;font-weight:300;color:#888;line-height:1.5;}
+.form-ok{display:none;margin-top:1.5rem;font-family:'Barlow',sans-serif;font-size:0.98rem;border-left:3px solid var(--black);padding-left:1rem;line-height:1.6;}
 
-.hero-sub {
-  font-family: 'Barlow', sans-serif;
-  font-size: 1.05rem; font-weight: 300;
-  line-height: 1.72; max-width: 540px; color: #333;
-}
-.hero-sub strong { font-weight: 400; color: var(--black); font-family: 'Fjalla One', sans-serif; }
+/* IMPRESSUM MODAL */
+.impressum-overlay{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:2rem;}
+.impressum-overlay.open{display:flex;}
+.impressum-box{background:var(--white);max-width:480px;width:100%;padding:3rem;position:relative;}
+.impressum-box h3{font-family:'Fjalla One',sans-serif;font-size:1.6rem;text-transform:uppercase;margin-bottom:1.5rem;}
+.impressum-box p{font-family:'Barlow',sans-serif;font-size:1rem;font-weight:300;line-height:1.75;color:#333;}
+.impressum-box a{color:var(--black);}
+.impressum-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.3rem;cursor:pointer;opacity:0.5;transition:opacity var(--t);font-family:'Barlow',sans-serif;}
+.impressum-close:hover{opacity:1;}
 
-/* ── KACHELN ── */
-#leistungen { background: var(--black); }
+/* FOOTER */
+footer{background:var(--black);color:var(--white);padding:2.5rem 2.5rem 2rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;}
+.footer-logo{display:flex;flex-direction:column;gap:3px;}
+.footer-wordmark{font-family:'Fjalla One',sans-serif;font-size:1.25rem;}
+.footer-mark-row{display:flex;align-items:center;gap:4px;}
+.f-sq{width:20px;height:20px;background:var(--white);}
+.f-ci{width:20px;height:20px;background:var(--white);border-radius:50%;}
+.footer-sub{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:2px;}
+.footer-links{display:flex;gap:2rem;flex-wrap:wrap;align-items:center;}
+.footer-links a{font-family:'Barlow',sans-serif;font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.5);text-decoration:none;transition:color var(--t);}
+.footer-links a:hover{color:var(--white);}
+.footer-bottom{width:100%;border-top:1px solid rgba(255,255,255,0.1);padding-top:1.2rem;margin-top:0.5rem;font-family:'Barlow',sans-serif;font-size:0.72rem;font-weight:300;color:rgba(255,255,255,0.25);letter-spacing:0.06em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
+.footer-bottom a{color:rgba(255,255,255,0.25);text-decoration:none;cursor:pointer;}
+.footer-bottom a:hover{color:rgba(255,255,255,0.6);}
 
-.section-label {
-  padding: 1.8rem 2.5rem 0;
-  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  display: flex; align-items: center; gap: 0.6rem;
-}
-.section-label::before { content: ''; width: 9px; height: 9px; background: rgba(255,255,255,0.35); flex-shrink: 0; }
-.section-label::after  { content: ''; width: 9px; height: 9px; background: rgba(255,255,255,0.35); border-radius: 50%; flex-shrink: 0; }
-
-.tiles {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 1px; padding: 2rem 2.5rem 2.5rem;
-  background: rgba(255,255,255,0.08);
-}
-.tile {
-  background: var(--black); min-height: 300px;
-  padding: 2.5rem 2.2rem 2rem; cursor: pointer; position: relative;
-  display: flex; flex-direction: column; justify-content: space-between;
-  transition: background var(--t); border: none; text-align: left; width: 100%;
-}
-.tile:hover { background: #111; }
-.tile:hover .tile-arrow { transform: translateX(5px); }
-.tile:hover .tile-shape { transform: scale(1.06); }
-.tile-top { display: flex; flex-direction: column; gap: 1.6rem; }
-.tile-number { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.28); }
-.tile-shape { transition: transform var(--t); }
-.s-sq { width: 48px; height: 48px; background: var(--white); }
-.s-ci { width: 48px; height: 48px; background: var(--white); border-radius: 50%; }
-.tile-title { font-family: 'Fjalla One', sans-serif; font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 0.95; text-transform: uppercase; color: var(--white); }
-.tile-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; }
-.tile-tagline { font-family: 'Barlow', sans-serif; font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,0.4); }
-.tile-arrow { font-size: 1.2rem; color: rgba(255,255,255,0.6); transition: transform var(--t); }
-
-.tiles-footer {
-  padding: 1.5rem 2.5rem;
-  font-family: 'Barlow', sans-serif; font-size: 0.68rem; font-weight: 300;
-  color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase;
-}
-
-/* ── A/B VARIANT B: LIST ── */
-.service-list { list-style: none; padding: 0 2.5rem; display: none; }
-.service-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
-.service-item:first-child { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1.8rem; }
-.service-btn {
-  width: 100%; background: none; border: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; padding: 1.6rem 0; text-align: left; transition: opacity var(--t);
-}
-.service-btn:hover { opacity: 0.55; }
-.service-btn:hover .svc-arrow { transform: translateX(5px); }
-.svc-left { display: flex; align-items: center; gap: 1.8rem; }
-.svc-num { font-family: 'Fjalla One', sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.3); min-width: 24px; }
-.svc-shape { flex-shrink: 0; }
-.svc-sq { width: 22px; height: 22px; background: var(--white); }
-.svc-ci { width: 22px; height: 22px; background: var(--white); border-radius: 50%; }
-.svc-name { font-family: 'Fjalla One', sans-serif; font-size: clamp(1.4rem, 3vw, 2.6rem); text-transform: uppercase; line-height: 1; color: var(--white); }
-.svc-tag { font-family: 'Barlow', sans-serif; font-size: 0.78rem; font-weight: 300; color: rgba(255,255,255,0.35); white-space: nowrap; }
-.svc-arrow { font-size: 1.2rem; color: rgba(255,255,255,0.5); transition: transform var(--t); flex-shrink: 0; }
-
-/* ── OVERLAY / PANEL ── */
-.overlay {
-  position: fixed; inset: 0; z-index: 600;
-  background: rgba(0,0,0,0); pointer-events: none; transition: background 0.35s ease;
-}
-.overlay.open { background: rgba(0,0,0,0.55); pointer-events: all; }
-
-.panel {
-  position: fixed; top: 0; right: 0; bottom: 0;
-  width: min(640px, 100%); background: var(--white); z-index: 700;
-  transform: translateX(100%);
-  transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
-  display: flex; flex-direction: column; overflow-y: auto;
-}
-.panel.open { transform: translateX(0); }
-
-.panel-header {
-  position: sticky; top: 0; background: var(--black);
-  padding: 1.6rem 2rem;
-  display: flex; align-items: flex-start; justify-content: space-between; flex-shrink: 0;
-}
-.panel-title-wrap { display: flex; flex-direction: column; gap: 0.4rem; }
-.panel-number { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-.panel-title { font-family: 'Fjalla One', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); text-transform: uppercase; line-height: 0.95; color: var(--white); }
-.panel-shape { margin-top: 0.5rem; }
-.ps-sq { width: 28px; height: 28px; background: var(--white); }
-.ps-ci { width: 28px; height: 28px; background: var(--white); border-radius: 50%; }
-.panel-close {
-  background: none; border: none; cursor: pointer; color: var(--white);
-  font-size: 1.4rem; line-height: 1; padding: 0.2rem; flex-shrink: 0;
-  font-family: 'Barlow', sans-serif; font-weight: 300; opacity: 0.6; transition: opacity var(--t);
-}
-.panel-close:hover { opacity: 1; }
-.panel-body { padding: 2.5rem 2rem; flex: 1; }
-.panel-lead { font-family: 'Fjalla One', sans-serif; font-size: 1.3rem; text-transform: uppercase; line-height: 1.2; margin-bottom: 1.2rem; letter-spacing: 0.01em; }
-.panel-text { font-family: 'Barlow', sans-serif; font-size: 0.98rem; font-weight: 300; line-height: 1.78; color: #333; margin-bottom: 2rem; }
-.panel-list { list-style: none; margin-bottom: 2.5rem; }
-.panel-list li { font-family: 'Barlow', sans-serif; font-size: 0.9rem; font-weight: 400; padding: 0.75rem 0; border-bottom: 1px solid #ebebeb; display: flex; align-items: center; gap: 0.9rem; color: #111; }
-.panel-list li::before { content: ''; width: 8px; height: 8px; background: var(--black); flex-shrink: 0; }
-.panel-list li.ci-item::before { border-radius: 50%; }
-.panel-divider { border: none; border-top: 2px solid var(--black); margin: 2rem 0; }
-.panel-form-title { font-family: 'Fjalla One', sans-serif; font-size: 1.4rem; text-transform: uppercase; margin-bottom: 1.5rem; }
-
-.form-field { border-bottom: 1px solid #000; margin-bottom: 0; }
-.form-field label { display: block; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: #888; padding-top: 1.2rem; padding-bottom: 0.25rem; }
-.form-field input, .form-field textarea { width: 100%; background: transparent; border: none; outline: none; font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 1rem; color: var(--black); padding-bottom: 0.9rem; }
-.form-field textarea { resize: none; min-height: 80px; line-height: 1.6; }
-.form-field input::placeholder, .form-field textarea::placeholder { color: #bbb; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.5rem; }
-.form-submit { margin-top: 2rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-.btn-submit { background: var(--black); color: var(--white); border: none; padding: 0.9rem 2rem; font-family: 'Fjalla One', sans-serif; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; transition: opacity var(--t); }
-.btn-submit:hover { opacity: 0.75; }
-.form-hint { font-family: 'Barlow', sans-serif; font-size: 0.72rem; font-weight: 300; color: #888; line-height: 1.5; }
-.form-ok { display: none; margin-top: 1.5rem; font-family: 'Barlow', sans-serif; font-size: 0.9rem; border-left: 3px solid var(--black); padding-left: 1rem; line-height: 1.6; }
-
-/* ── IMPRESSUM MODAL ── */
-.impressum-overlay {
-  position: fixed; inset: 0; z-index: 800;
-  background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center;
-  padding: 2rem;
-}
-.impressum-overlay.open { display: flex; }
-.impressum-box {
-  background: var(--white); max-width: 480px; width: 100%;
-  padding: 3rem; position: relative;
-}
-.impressum-box h3 { font-family: 'Fjalla One', sans-serif; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 1.5rem; }
-.impressum-box p { font-family: 'Barlow', sans-serif; font-size: 0.92rem; font-weight: 300; line-height: 1.75; color: #333; }
-.impressum-box a { color: var(--black); }
-.impressum-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.3rem; cursor: pointer; opacity: 0.5; transition: opacity var(--t); font-family: 'Barlow', sans-serif; }
-.impressum-close:hover { opacity: 1; }
-
-/* ── FOOTER ── */
-footer { background: var(--black); color: var(--white); padding: 2.5rem 2.5rem 2rem; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-.footer-logo { display: flex; flex-direction: column; gap: 3px; }
-.footer-wordmark { font-family: 'Fjalla One', sans-serif; font-size: 1.2rem; }
-.footer-mark-row { display: flex; align-items: center; gap: 4px; }
-.f-sq { width: 20px; height: 20px; background: var(--white); }
-.f-ci { width: 20px; height: 20px; background: var(--white); border-radius: 50%; }
-.footer-sub { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 2px; }
-.footer-links { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
-.footer-links a { font-family: 'Barlow', sans-serif; font-size: 0.78rem; font-weight: 300; color: rgba(255,255,255,0.5); text-decoration: none; transition: color var(--t); }
-.footer-links a:hover { color: var(--white); }
-.footer-bottom { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.2rem; margin-top: 0.5rem; font-family: 'Barlow', sans-serif; font-size: 0.68rem; font-weight: 300; color: rgba(255,255,255,0.25); letter-spacing: 0.06em; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
-.footer-bottom a { color: rgba(255,255,255,0.25); text-decoration: none; cursor: pointer; }
-.footer-bottom a:hover { color: rgba(255,255,255,0.6); }
-
-/* ── RESPONSIVE ── */
-@media(max-width: 768px) {
-  header { padding: 0.8rem 1.2rem; }
-  nav a:not(.nav-kontakt) { display: none; }
-  #hero { padding-left: 1.2rem; padding-right: 1.2rem; padding-bottom: 2.5rem; }
-  .hero-eyebrow { padding-top: 2rem; }
-  .tiles { grid-template-columns: 1fr; padding: 1.2rem; }
-  .tile { min-height: 220px; padding: 2rem 1.5rem 1.6rem; }
-  .section-label { padding: 1.5rem 1.2rem 0; }
-  .tiles-footer { padding: 1.2rem; }
-  .service-list { padding: 0 1.2rem; }
-  .svc-tag { display: none; }
-  footer { padding: 2rem 1.2rem 1.5rem; flex-direction: column; align-items: flex-start; }
-  .panel { width: 100%; }
-  .form-row { grid-template-columns: 1fr; }
+/* RESPONSIVE */
+@media(max-width:768px){
+  header{padding:0.8rem 1.2rem;}
+  nav a:not(.nav-kontakt){display:none;}
+  #hero{padding-left:1.2rem;padding-right:1.2rem;padding-bottom:2.5rem;}
+  .hero-eyebrow{padding-top:2rem;}
+  .tiles{grid-template-columns:1fr;padding:1.2rem;}
+  .tile{min-height:220px;padding:2rem 1.5rem 1.6rem;}
+  .section-label{padding:1.5rem 1.2rem 0;}
+  .tiles-footer{padding:1.2rem;}
+  .service-list{padding:0 1.2rem;}
+  .svc-tag{display:none;}
+  footer{padding:2rem 1.2rem 1.5rem;flex-direction:column;align-items:flex-start;}
+  .panel{width:100%;}
+  .form-row{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -307,7 +191,7 @@ footer { background: var(--black); color: var(--white); padding: 2.5rem 2.5rem 2
     <span class="outline" data-de="Aber Sinnvoll." data-en="But Sinnvoll.">Aber Sinnvoll.</span>
   </h1>
   <p class="hero-sub">
-    <span data-de="Wir sind Gastronomen. In 15 eigenen Betrieben haben wir aufgebaut, was funktioniert –" data-en="We are gastronomy professionals. In 15 of our own establishments, we built what works –">Wir sind Gastronomen. In 15 eigenen Betrieben haben wir aufgebaut, was funktioniert –</span>
+    <span data-de="Wir sind Gastronomen. In 15 eigenen Betrieben haben wir aufgebaut, was funktioniert –" data-en="We are hospitality professionals. In 15 of our own establishments, we built what works –">Wir sind Gastronomen. In 15 eigenen Betrieben haben wir aufgebaut, was funktioniert –</span>
     <strong data-de="Finanzen, HR, Systeme, Marketing." data-en="Finance, HR, Systems, Marketing.">Finanzen, HR, Systeme, Marketing.</strong><br/>
     <span data-de="Dieses Wissen bringen wir jetzt direkt in deinen Betrieb." data-en="We now bring this knowledge directly to your business.">Dieses Wissen bringen wir jetzt direkt in deinen Betrieb.</span>
   </p>
@@ -354,24 +238,24 @@ footer { background: var(--black); color: var(--white); padding: 2.5rem 2.5rem 2
       <div class="tile-top">
         <span class="tile-number">04</span>
         <div class="tile-shape"><div class="s-sq"></div></div>
-        <div class="tile-title" data-de="Marketing &amp; Design" data-en="Marketing &amp; Design">Marketing &amp; Design</div>
+        <div class="tile-title" data-de="Digitales Marketing" data-en="Digital Marketing">Digitales Marketing</div>
       </div>
       <div class="tile-footer">
-        <span class="tile-tagline" data-de="Auftritte, die haften." data-en="Brands that stick.">Auftritte, die haften.</span>
+        <span class="tile-tagline" data-de="Sichtbar da, wo es zählt." data-en="Visible where it counts.">Sichtbar da, wo es zählt.</span>
         <span class="tile-arrow">→</span>
       </div>
     </button>
   </div>
-  <div class="tiles-footer">Sinnvoll Dienstleistungen · Luzern · sinnvollgastro.ch</div>
+  <div class="tiles-footer">Sinnvoll Dienstleistungen · Kriens · sinnvollgastro.ch</div>
 
   <!-- VARIANT B: List -->
   <ul class="service-list" id="serviceList">
     <li class="service-item"><button class="service-btn" onclick="openPanel(0)"><div class="svc-left"><span class="svc-num">01</span><div class="svc-shape"><div class="svc-sq"></div></div><span class="svc-name" data-de="Finanz &amp; Controlling" data-en="Finance &amp; Controlling">Finanz &amp; Controlling</span></div><span class="svc-tag" data-de="Zahlen, die stimmen." data-en="Numbers that add up.">Zahlen, die stimmen.</span><span class="svc-arrow">→</span></button></li>
     <li class="service-item"><button class="service-btn" onclick="openPanel(1)"><div class="svc-left"><span class="svc-num">02</span><div class="svc-shape"><div class="svc-ci"></div></div><span class="svc-name" data-de="Human Resources" data-en="Human Resources">Human Resources</span></div><span class="svc-tag" data-de="Menschen, die bleiben." data-en="People who stay.">Menschen, die bleiben.</span><span class="svc-arrow">→</span></button></li>
     <li class="service-item"><button class="service-btn" onclick="openPanel(2)"><div class="svc-left"><span class="svc-num">03</span><div class="svc-shape"><div class="svc-ci"></div></div><span class="svc-name" data-de="Systemintegration" data-en="System Integration">Systemintegration</span></div><span class="svc-tag" data-de="Technik, die läuft." data-en="Tech that works.">Technik, die läuft.</span><span class="svc-arrow">→</span></button></li>
-    <li class="service-item"><button class="service-btn" onclick="openPanel(3)"><div class="svc-left"><span class="svc-num">04</span><div class="svc-shape"><div class="svc-sq"></div></div><span class="svc-name" data-de="Marketing &amp; Design" data-en="Marketing &amp; Design">Marketing &amp; Design</span></div><span class="svc-tag" data-de="Auftritte, die haften." data-en="Brands that stick.">Auftritte, die haften.</span><span class="svc-arrow">→</span></button></li>
+    <li class="service-item"><button class="service-btn" onclick="openPanel(3)"><div class="svc-left"><span class="svc-num">04</span><div class="svc-shape"><div class="svc-sq"></div></div><span class="svc-name" data-de="Digitales Marketing" data-en="Digital Marketing">Digitales Marketing</span></div><span class="svc-tag" data-de="Sichtbar da, wo es zählt." data-en="Visible where it counts.">Sichtbar da, wo es zählt.</span><span class="svc-arrow">→</span></button></li>
   </ul>
-  <div class="tiles-footer" id="listFooter" style="display:none;">Sinnvoll Dienstleistungen · Luzern · sinnvollgastro.ch</div>
+  <div class="tiles-footer" id="listFooter" style="display:none;">Sinnvoll Dienstleistungen · Kriens · sinnvollgastro.ch</div>
 </section>
 
 <!-- FOOTER -->
@@ -379,7 +263,7 @@ footer { background: var(--black); color: var(--white); padding: 2.5rem 2.5rem 2
   <div class="footer-logo">
     <div class="footer-wordmark">Sinnvoll</div>
     <div class="footer-mark-row"><div class="f-sq"></div><div class="f-ci"></div></div>
-    <div class="footer-sub">Dienstleistungen · Luzern</div>
+    <div class="footer-sub">Dienstleistungen · Kriens</div>
   </div>
   <div class="footer-links">
     <a href="https://www.sinnvollgastro.ch" target="_blank">sinnvollgastro.ch</a>
@@ -402,17 +286,14 @@ footer { background: var(--black); color: var(--white); padding: 2.5rem 2.5rem 2
     <p>
       <span data-de="Verantwortlich für den Inhalt" data-en="Responsible for content">Verantwortlich für den Inhalt</span><br/>
       <strong>Sinnvoll Dienstleistungen GmbH</strong><br/>
-      Amlehnstrasse 22<br/>
-      6010 Kriens<br/><br/>
+      Amlehnstrasse 22<br/>6010 Kriens<br/><br/>
       <a href="mailto:info@sinnvollgastro.ch">info@sinnvollgastro.ch</a>
     </p>
   </div>
 </div>
 
-<!-- OVERLAY -->
+<!-- OVERLAY + PANEL -->
 <div class="overlay" id="overlay" onclick="closePanel()"></div>
-
-<!-- PANEL -->
 <div class="panel" id="panel" role="dialog" aria-modal="true">
   <div class="panel-header">
     <div class="panel-title-wrap">
@@ -420,103 +301,146 @@ footer { background: var(--black); color: var(--white); padding: 2.5rem 2.5rem 2
       <h2 class="panel-title" id="panelTitle"></h2>
       <div class="panel-shape" id="panelShape"></div>
     </div>
-    <button class="panel-close" onclick="closePanel()" aria-label="Schliessen">✕</button>
+    <button class="panel-close" onclick="closePanel()">✕</button>
   </div>
   <div class="panel-body" id="panelBody"></div>
 </div>
 
 <script>
-// ── LANGUAGE ──
 let currentLang = 'de';
 
 function setLang(lang) {
   currentLang = lang;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.lang-btn').forEach(b => { if(b.textContent.toLowerCase() === lang) b.classList.add('active'); });
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.toLowerCase() === lang);
+  });
   document.querySelectorAll('[data-de]').forEach(el => {
     el.innerHTML = el.getAttribute('data-' + lang);
   });
-  posthog.capture('language_switched', { lang });
+  posthog.capture('language_switched', {lang});
 }
 
-// ── CONTENT ──
 const services = {
   de: [
     {
-      number: '01', title: 'Finanz & Controlling', shape: 'sq',
-      lead: 'Klare Zahlen. Klare Entscheide.',
-      text: 'Gastronomiebetriebe scheitern selten an schlechtem Essen – oft an fehlender Übersicht. Unsere Finanzspezialisten kennen die Branche aus 15 eigenen Häusern: Was kostet eine Küche wirklich? Wo verstecken sich Margen? Wie plant man saisonal? Wir machen deine Zahlen zur Führungsstärke.',
-      bullets: [{t:'Finanzbuchhaltung & Reporting (Abacus)',ci:false},{t:'Liquiditätsplanung & Kostenoptimierung',ci:true},{t:'Controlling-Systeme aufbauen & einführen',ci:false},{t:'Jahresabschluss & Budgetierung',ci:true},{t:'KPI-Dashboards für Gastrobetriebe',ci:false}],
-      formTitle: 'Gespräch anfragen.', namePh: 'Dein Name', betriebPh: 'Restaurant / Hotel', emailPh: 'deine@email.ch', msgPh: 'Was können wir für dich tun?', btnText: 'Anfrage senden →', hintText: 'Wir melden uns innerhalb\nvon 24 Stunden.', okText: 'Vielen Dank für deine Anfrage.\nWir melden uns bald.'
+      number:'01', title:'Finanz & Controlling', shape:'sq',
+      lead:'Klare Zahlen. Klare Entscheide.',
+      text:'Gastronomiebetriebe scheitern selten an schlechtem Essen – oft an fehlender Übersicht. Unsere Finanzspezialisten kennen die Branche aus 15 eigenen Häusern. Sie wissen, was eine Küche wirklich kostet, wo sich Margen verstecken und wie man saisonal plant. Wir machen deine Zahlen zur Führungsstärke.',
+      bullets:[
+        {t:'Finanzbuchhaltung & Reporting (Abacus)',ci:false},
+        {t:'Führung von Debitorenbuchhaltung und Zahlungsläufen',ci:true},
+        {t:'Jahresabschluss & Budgetierung',ci:false},
+        {t:'KPI-Dashboards für Gastrobetriebe',ci:true}
+      ],
+      formTitle:'Gespräch anfragen.', namePh:'Dein Name', betriebPh:'Restaurant / Hotel', emailPh:'deine@email.ch', msgPh:'Was können wir für dich tun?', btnText:'Anfrage senden →', hintText:'Wir melden uns innerhalb\nvon 24 Stunden.', okText:'Vielen Dank für deine Anfrage.\nWir melden uns bald.'
     },
     {
-      number: '02', title: 'Human Resources', shape: 'ci',
-      lead: 'Die richtigen Menschen. Zur richtigen Zeit.',
-      text: 'In der Gastronomie entscheiden Menschen alles. Wir helfen dir, ein Team aufzubauen, das bleibt – mit einem Recruiting-Prozess, der funktioniert, einer Führungskultur, die motiviert, und HR-Strukturen nach Schweizer Standard. Aus der Praxis, nicht aus dem Lehrbuch.',
-      bullets: [{t:'Recruiting & strukturiertes Onboarding',ci:true},{t:'Lohnwesen & Arbeitsrecht Schweiz',ci:false},{t:'Mitarbeiterentwicklung & Schulungen',ci:true},{t:'Employer Branding für Gastrobetriebe',ci:false},{t:'Führungskultur & Teamstruktur',ci:true}],
-      formTitle: 'Gespräch anfragen.', namePh: 'Dein Name', betriebPh: 'Restaurant / Hotel', emailPh: 'deine@email.ch', msgPh: 'Was können wir für dich tun?', btnText: 'Anfrage senden →', hintText: 'Wir melden uns innerhalb\nvon 24 Stunden.', okText: 'Vielen Dank für deine Anfrage.\nWir melden uns bald.'
+      number:'02', title:'Human Resources', shape:'ci',
+      lead:'Die richtigen Menschen. Zur richtigen Zeit.',
+      text:'In der Gastronomie entscheiden Menschen alles. Wir helfen dir, ein Team aufzubauen, das bleibt – mit einem Recruiting-Prozess, der funktioniert, einer Führungskultur, die motiviert, und HR-Strukturen nach Schweizer Standard. Aus der Praxis, nicht aus dem Lehrbuch.',
+      bullets:[
+        {t:'Recruiting & strukturiertes Onboarding',ci:true},
+        {t:'Lohnwesen & Arbeitsrecht Schweiz',ci:false},
+        {t:'Mitarbeiterentwicklung & Schulungen',ci:true},
+        {t:'Führungskultur & Teamstruktur',ci:false}
+      ],
+      formTitle:'Gespräch anfragen.', namePh:'Dein Name', betriebPh:'Restaurant / Hotel', emailPh:'deine@email.ch', msgPh:'Was können wir für dich tun?', btnText:'Anfrage senden →', hintText:'Wir melden uns innerhalb\nvon 24 Stunden.', okText:'Vielen Dank für deine Anfrage.\nWir melden uns bald.'
     },
     {
-      number: '03', title: 'Systemintegration', shape: 'ci',
-      lead: 'Systeme, die zusammenarbeiten. Prozesse, die sich selbst erledigen.',
-      text: 'Wir nutzen MEWS, Abacus und weitere Systeme täglich in unseren eigenen Betrieben. Wir analysieren deinen Techstack, schliessen Lücken und automatisieren, was automatisiert gehört. Mit gezielten API-Anbindungen verbinden wir Systeme, die bisher nicht miteinander sprachen – und begleiten dich sinnvoll in den Einsatz von KI, wo sie echten Nutzen bringt.',
-      bullets: [{t:'MEWS PMS Implementierung & Schulung',ci:false},{t:'Abacus ERP & Lohnwesen Integration',ci:true},{t:'Kassensysteme & POS-Anbindungen',ci:false},{t:'API-Anbindungen & Systemvernetzung',ci:true},{t:'Prozessautomatisierung & Workflows',ci:false},{t:'Techstack-Analyse & Optimierung',ci:true},{t:'KI-Tools & AI-Unterstützung im Betrieb',ci:false}],
-      formTitle: 'Gespräch anfragen.', namePh: 'Dein Name', betriebPh: 'Restaurant / Hotel', emailPh: 'deine@email.ch', msgPh: 'Was können wir für dich tun?', btnText: 'Anfrage senden →', hintText: 'Wir melden uns innerhalb\nvon 24 Stunden.', okText: 'Vielen Dank für deine Anfrage.\nWir melden uns bald.'
+      number:'03', title:'Systemintegration', shape:'ci',
+      lead:'Systeme, die zusammenarbeiten. Prozesse, die sich selbst erledigen.',
+      text:'Wir nutzen MEWS und weitere Systeme täglich in unseren eigenen Betrieben. Wir analysieren deine bestehende Systemlandschaft, identifizieren Redundanzen und bauen eine schlanke, zielorientierte Infrastruktur auf – mit den richtigen Verbindungen zwischen den richtigen Tools. Und wir begleiten dich sinnvoll in den Einsatz von KI dort, wo sie echten Nutzen bringt.',
+      bullets:[
+        {t:'MEWS PMS Implementierung & Schulung',ci:false},
+        {t:'Kassensysteme & POS-Anbindungen',ci:true},
+        {t:'Analyse & Aufbau einer zielorientierten Systemlandschaft',ci:false},
+        {t:'Prozessautomatisierung & Workflows',ci:true},
+        {t:'Revenue Management',ci:false},
+        {t:'KI-Tools & AI-Unterstützung im Betrieb',ci:true}
+      ],
+      formTitle:'Gespräch anfragen.', namePh:'Dein Name', betriebPh:'Restaurant / Hotel', emailPh:'deine@email.ch', msgPh:'Was können wir für dich tun?', btnText:'Anfrage senden →', hintText:'Wir melden uns innerhalb\nvon 24 Stunden.', okText:'Vielen Dank für deine Anfrage.\nWir melden uns bald.'
     },
     {
-      number: '04', title: 'Marketing & Design', shape: 'sq',
-      lead: 'Sichtbar sein. Erkannt werden. Im Gedächtnis bleiben.',
-      text: 'Ein gutes Produkt verdient einen starken Auftritt. Wir gestalten Identitäten und Kommunikation für Gastrobetriebe, die herausstechen wollen – konsistent, mutig und mit echtem Gastro-Verständnis. Von der Visitenkarte bis zur digitalen Kampagne, alles aus einer Hand.',
-      bullets: [{t:'Brand Identity & Corporate Design',ci:true},{t:'Digitales Marketing & Social Media',ci:false},{t:'Webdesign & Online-Präsenz',ci:true},{t:'Fotografie & Content-Produktion',ci:false},{t:'Menükarten, Print & Signaletik',ci:true}],
-      formTitle: 'Gespräch anfragen.', namePh: 'Dein Name', betriebPh: 'Restaurant / Hotel', emailPh: 'deine@email.ch', msgPh: 'Was können wir für dich tun?', btnText: 'Anfrage senden →', hintText: 'Wir melden uns innerhalb\nvon 24 Stunden.', okText: 'Vielen Dank für deine Anfrage.\nWir melden uns bald.'
+      number:'04', title:'Digitales Marketing', shape:'sq',
+      lead:'Sichtbar da, wo Gäste suchen.',
+      text:'Ein guter Betrieb verdient einen starken digitalen Auftritt. Wir helfen dir, auf den richtigen Plattformen präsent zu sein, deine Online-Sichtbarkeit gezielt zu verbessern und mehr Direktbuchungen zu erzielen. Kein Streuverlust – sondern klare Massnahmen mit messbarem Ergebnis.',
+      bullets:[
+        {t:'Positionierung auf Online-Plattformen (Booking, Google, TripAdvisor)',ci:false},
+        {t:'Optimierung der Online-Präsenz & Webauftritt',ci:true},
+        {t:'Google Optimierungen (SEO & Google Business)',ci:false},
+        {t:'Revenue Management',ci:true}
+      ],
+      formTitle:'Gespräch anfragen.', namePh:'Dein Name', betriebPh:'Restaurant / Hotel', emailPh:'deine@email.ch', msgPh:'Was können wir für dich tun?', btnText:'Anfrage senden →', hintText:'Wir melden uns innerhalb\nvon 24 Stunden.', okText:'Vielen Dank für deine Anfrage.\nWir melden uns bald.'
     }
   ],
   en: [
     {
-      number: '01', title: 'Finance & Controlling', shape: 'sq',
-      lead: 'Clear numbers. Clear decisions.',
-      text: 'Hospitality businesses rarely fail because of bad food – they fail from lack of financial clarity. Our finance specialists know the industry from 15 of our own establishments: What does a kitchen really cost? Where are the hidden margins? How do you plan seasonally? We turn your numbers into a management strength.',
-      bullets: [{t:'Bookkeeping & Reporting (Abacus)',ci:false},{t:'Liquidity planning & cost optimisation',ci:true},{t:'Building & implementing controlling systems',ci:false},{t:'Annual accounts & budgeting',ci:true},{t:'KPI dashboards for hospitality businesses',ci:false}],
-      formTitle: 'Request a conversation.', namePh: 'Your name', betriebPh: 'Restaurant / Hotel', emailPh: 'your@email.ch', msgPh: 'How can we help you?', btnText: 'Send request →', hintText: 'We\'ll get back to you\nwithin 24 hours.', okText: 'Thank you for your request.\nWe\'ll be in touch soon.'
+      number:'01', title:'Finance & Controlling', shape:'sq',
+      lead:'Clear numbers. Clear decisions.',
+      text:'Hospitality businesses rarely fail because of bad food – they fail from lack of financial clarity. Our finance specialists know the industry from 15 of our own establishments. They know what a kitchen really costs, where margins hide and how to plan seasonally. We turn your numbers into a management strength.',
+      bullets:[
+        {t:'Bookkeeping & Reporting (Abacus)',ci:false},
+        {t:'Accounts receivable & payment management',ci:true},
+        {t:'Annual accounts & budgeting',ci:false},
+        {t:'KPI dashboards for hospitality businesses',ci:true}
+      ],
+      formTitle:'Request a conversation.', namePh:'Your name', betriebPh:'Restaurant / Hotel', emailPh:'your@email.ch', msgPh:'How can we help you?', btnText:'Send request →', hintText:"We'll get back to you\nwithin 24 hours.", okText:"Thank you for your request.\nWe'll be in touch soon."
     },
     {
-      number: '02', title: 'Human Resources', shape: 'ci',
-      lead: 'The right people. At the right time.',
-      text: 'In hospitality, people make all the difference. We help you build a team that stays – with a recruiting process that works, a leadership culture that motivates, and HR structures that meet Swiss standards. Drawn from practice, not from textbooks.',
-      bullets: [{t:'Recruiting & structured onboarding',ci:true},{t:'Payroll & Swiss employment law',ci:false},{t:'Staff development & training',ci:true},{t:'Employer branding for hospitality',ci:false},{t:'Leadership culture & team structure',ci:true}],
-      formTitle: 'Request a conversation.', namePh: 'Your name', betriebPh: 'Restaurant / Hotel', emailPh: 'your@email.ch', msgPh: 'How can we help you?', btnText: 'Send request →', hintText: 'We\'ll get back to you\nwithin 24 hours.', okText: 'Thank you for your request.\nWe\'ll be in touch soon.'
+      number:'02', title:'Human Resources', shape:'ci',
+      lead:'The right people. At the right time.',
+      text:"In hospitality, people make all the difference. We help you build a team that stays – with a recruiting process that works, a leadership culture that motivates, and HR structures that meet Swiss standards. Drawn from practice, not from textbooks.",
+      bullets:[
+        {t:'Recruiting & structured onboarding',ci:true},
+        {t:'Payroll & Swiss employment law',ci:false},
+        {t:'Staff development & training',ci:true},
+        {t:'Leadership culture & team structure',ci:false}
+      ],
+      formTitle:'Request a conversation.', namePh:'Your name', betriebPh:'Restaurant / Hotel', emailPh:'your@email.ch', msgPh:'How can we help you?', btnText:'Send request →', hintText:"We'll get back to you\nwithin 24 hours.", okText:"Thank you for your request.\nWe'll be in touch soon."
     },
     {
-      number: '03', title: 'System Integration', shape: 'ci',
-      lead: 'Systems that work together. Processes that run themselves.',
-      text: 'We use MEWS, Abacus and other systems daily in our own establishments. We analyse your tech stack, close gaps and automate what should be automated. With targeted API integrations, we connect systems that previously didn\'t talk to each other – and guide you sensibly into AI where it delivers real value.',
-      bullets: [{t:'MEWS PMS implementation & training',ci:false},{t:'Abacus ERP & payroll integration',ci:true},{t:'POS systems & cash register integrations',ci:false},{t:'API integrations & system connectivity',ci:true},{t:'Process automation & workflows',ci:false},{t:'Tech stack analysis & optimisation',ci:true},{t:'AI tools & automation support',ci:false}],
-      formTitle: 'Request a conversation.', namePh: 'Your name', betriebPh: 'Restaurant / Hotel', emailPh: 'your@email.ch', msgPh: 'How can we help you?', btnText: 'Send request →', hintText: 'We\'ll get back to you\nwithin 24 hours.', okText: 'Thank you for your request.\nWe\'ll be in touch soon.'
+      number:'03', title:'System Integration', shape:'ci',
+      lead:'Systems that work together. Processes that run themselves.',
+      text:"We use MEWS and other systems daily in our own establishments. We analyse your existing system landscape, identify redundancies and build a lean, goal-oriented infrastructure – with the right connections between the right tools. And we guide you sensibly into AI where it delivers real value.",
+      bullets:[
+        {t:'MEWS PMS implementation & training',ci:false},
+        {t:'POS systems & cash register integrations',ci:true},
+        {t:'Analysis & setup of a goal-oriented system landscape',ci:false},
+        {t:'Process automation & workflows',ci:true},
+        {t:'Revenue management',ci:false},
+        {t:'AI tools & automation support',ci:true}
+      ],
+      formTitle:'Request a conversation.', namePh:'Your name', betriebPh:'Restaurant / Hotel', emailPh:'your@email.ch', msgPh:'How can we help you?', btnText:'Send request →', hintText:"We'll get back to you\nwithin 24 hours.", okText:"Thank you for your request.\nWe'll be in touch soon."
     },
     {
-      number: '04', title: 'Marketing & Design', shape: 'sq',
-      lead: 'Be seen. Be recognised. Be remembered.',
-      text: 'A great product deserves a strong presence. We build identities and communication for hospitality businesses that want to stand out – consistent, bold and with genuine industry understanding. From business cards to digital campaigns, everything from one hand.',
-      bullets: [{t:'Brand identity & corporate design',ci:true},{t:'Digital marketing & social media',ci:false},{t:'Web design & online presence',ci:true},{t:'Photography & content production',ci:false},{t:'Menus, print & signage',ci:true}],
-      formTitle: 'Request a conversation.', namePh: 'Your name', betriebPh: 'Restaurant / Hotel', emailPh: 'your@email.ch', msgPh: 'How can we help you?', btnText: 'Send request →', hintText: 'We\'ll get back to you\nwithin 24 hours.', okText: 'Thank you for your request.\nWe\'ll be in touch soon.'
+      number:'04', title:'Digital Marketing', shape:'sq',
+      lead:'Visible where guests are looking.',
+      text:"A great establishment deserves a strong digital presence. We help you show up on the right platforms, sharpen your online visibility and generate more direct bookings. No scatter – just clear measures with measurable results.",
+      bullets:[
+        {t:'Positioning on online platforms (Booking, Google, TripAdvisor)',ci:false},
+        {t:'Online presence & website optimisation',ci:true},
+        {t:'Google optimisation (SEO & Google Business)',ci:false},
+        {t:'Revenue management',ci:true}
+      ],
+      formTitle:'Request a conversation.', namePh:'Your name', betriebPh:'Restaurant / Hotel', emailPh:'your@email.ch', msgPh:'How can we help you?', btnText:'Send request →', hintText:"We'll get back to you\nwithin 24 hours.", okText:"Thank you for your request.\nWe'll be in touch soon."
     }
   ]
 };
 
 const contactPanel = {
   de: {
-    number: 'Sinnvoll Dienstleistungen', title: 'Meld dich.', shape: 'sq',
-    lead: 'Wir sind für dich da.',
-    text: 'Du willst deinen Betrieb effizienter aufstellen, brauchst Unterstützung in Finanzen, HR, Systemintegration oder Marketing – oder weisst noch nicht genau, wo der Schuh drückt? Schreib uns. Wir schauen gemeinsam, was sinnvoll ist.',
-    bullets: [{t:'Finanz & Controlling',ci:false},{t:'Human Resources',ci:true},{t:'Systemintegration',ci:false},{t:'Marketing & Design',ci:true}],
-    formTitle: 'Nachricht schicken.', namePh: 'Dein Name', betriebPh: 'Restaurant / Hotel', emailPh: 'deine@email.ch', msgPh: 'Was beschäftigt dich gerade?', btnText: 'Anfrage senden →', hintText: 'Wir melden uns innerhalb\nvon 24 Stunden.', okText: 'Danke für deine Nachricht.\nWir sind bald bei dir.'
+    number:'Sinnvoll Dienstleistungen', title:'Meld dich.', shape:'sq',
+    lead:'Wir sind für dich da.',
+    text:'Du willst deinen Betrieb effizienter aufstellen, brauchst Unterstützung in Finanzen, HR, Systemintegration oder digitalem Marketing – oder weisst noch nicht genau, wo der Schuh drückt? Schreib uns. Wir schauen gemeinsam, was sinnvoll ist.',
+    bullets:[{t:'Finanz & Controlling',ci:false},{t:'Human Resources',ci:true},{t:'Systemintegration',ci:false},{t:'Digitales Marketing',ci:true}],
+    formTitle:'Nachricht schicken.', namePh:'Dein Name', betriebPh:'Restaurant / Hotel', emailPh:'deine@email.ch', msgPh:'Was beschäftigt dich gerade?', btnText:'Anfrage senden →', hintText:'Wir melden uns innerhalb\nvon 24 Stunden.', okText:'Danke für deine Nachricht.\nWir sind bald bei dir.'
   },
   en: {
-    number: 'Sinnvoll Dienstleistungen', title: 'Get in touch.', shape: 'sq',
-    lead: 'We\'re here for you.',
-    text: 'You want to make your business more efficient, need support in finance, HR, system integration or marketing – or you\'re not quite sure where to start? Write to us. We\'ll figure out together what makes sense.',
-    bullets: [{t:'Finance & Controlling',ci:false},{t:'Human Resources',ci:true},{t:'System Integration',ci:false},{t:'Marketing & Design',ci:true}],
-    formTitle: 'Send a message.', namePh: 'Your name', betriebPh: 'Restaurant / Hotel', emailPh: 'your@email.ch', msgPh: 'What\'s on your mind?', btnText: 'Send request →', hintText: 'We\'ll get back to you\nwithin 24 hours.', okText: 'Thank you for your message.\nWe\'ll be in touch soon.'
+    number:'Sinnvoll Dienstleistungen', title:'Get in touch.', shape:'sq',
+    lead:"We're here for you.",
+    text:"You want to make your business more efficient, need support in finance, HR, system integration or digital marketing – or you're not quite sure where to start? Write to us. We'll figure out together what makes sense.",
+    bullets:[{t:'Finance & Controlling',ci:false},{t:'Human Resources',ci:true},{t:'System Integration',ci:false},{t:'Digital Marketing',ci:true}],
+    formTitle:'Send a message.', namePh:'Your name', betriebPh:'Restaurant / Hotel', emailPh:'your@email.ch', msgPh:"What's on your mind?", btnText:'Send request →', hintText:"We'll get back to you\nwithin 24 hours.", okText:"Thank you for your message.\nWe'll be in touch soon."
   }
 };
 
@@ -524,6 +448,9 @@ let currentIdx = null;
 
 function buildPanelHTML(s) {
   const bullets = s.bullets.map(b => `<li class="${b.ci?'ci-item':''}">${b.t}</li>`).join('');
+  const nameLbl    = currentLang==='de'?'Name':'Name';
+  const betriebLbl = currentLang==='de'?'Betrieb':'Establishment';
+  const msgLbl     = currentLang==='de'?'Nachricht':'Message';
   return `
     <div class="panel-lead">${s.lead}</div>
     <p class="panel-text">${s.text}</p>
@@ -532,11 +459,11 @@ function buildPanelHTML(s) {
     <div class="panel-form-title">${s.formTitle}</div>
     <form onsubmit="submitForm(event,this)">
       <div class="form-row">
-        <div class="form-field"><label>${currentLang==='de'?'Name':'Name'}</label><input type="text" placeholder="${s.namePh}" required/></div>
-        <div class="form-field"><label>${currentLang==='de'?'Betrieb':'Establishment'}</label><input type="text" placeholder="${s.betriebPh}"/></div>
+        <div class="form-field"><label>${nameLbl}</label><input type="text" placeholder="${s.namePh}" required/></div>
+        <div class="form-field"><label>${betriebLbl}</label><input type="text" placeholder="${s.betriebPh}"/></div>
       </div>
       <div class="form-field"><label>E-Mail</label><input type="email" placeholder="${s.emailPh}" required/></div>
-      <div class="form-field"><label>${currentLang==='de'?'Nachricht':'Message'}</label><textarea placeholder="${s.msgPh}"></textarea></div>
+      <div class="form-field"><label>${msgLbl}</label><textarea placeholder="${s.msgPh}"></textarea></div>
       <div class="form-submit">
         <button type="submit" class="btn-submit">${s.btnText}</button>
         <p class="form-hint">${s.hintText.replace('\n','<br/>')}</p>
@@ -550,7 +477,7 @@ function openPanel(idx) {
   const s = services[currentLang][idx];
   document.getElementById('panelNumber').textContent = s.number + ' — Sinnvoll Dienstleistungen';
   document.getElementById('panelTitle').textContent = s.title;
-  document.getElementById('panelShape').innerHTML = s.shape==='sq' ? '<div class="ps-sq"></div>' : '<div class="ps-ci"></div>';
+  document.getElementById('panelShape').innerHTML = s.shape==='sq'?'<div class="ps-sq"></div>':'<div class="ps-ci"></div>';
   document.getElementById('panelBody').innerHTML = buildPanelHTML(s);
   document.getElementById('overlay').classList.add('open');
   document.getElementById('panel').classList.add('open');
@@ -583,42 +510,32 @@ function submitForm(e, form) {
   e.preventDefault();
   form.querySelector('.form-ok').style.display = 'block';
   const btn = form.querySelector('.btn-submit');
-  btn.textContent = currentLang === 'de' ? 'Gesendet ✓' : 'Sent ✓';
+  btn.textContent = currentLang==='de' ? 'Gesendet ✓' : 'Sent ✓';
   btn.disabled = true; btn.style.opacity = '0.4';
   trackFormSubmit(currentIdx);
 }
 
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closePanel(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closePanel(); });
 
-// ── POSTHOG TRACKING ──
+// POSTHOG TRACKING
 function trackPanelOpen(idx) {
-  const names = { de: ['Finanz & Controlling','Human Resources','Systemintegration','Marketing & Design'], en: ['Finance & Controlling','Human Resources','System Integration','Marketing & Design'] };
-  posthog.capture('panel_opened', { service: names[currentLang][idx], index: idx, lang: currentLang });
+  const n={de:['Finanz & Controlling','Human Resources','Systemintegration','Digitales Marketing'],en:['Finance & Controlling','Human Resources','System Integration','Digital Marketing']};
+  posthog.capture('panel_opened',{service:n[currentLang][idx],index:idx,lang:currentLang});
 }
 function trackFormSubmit(idx) {
-  const names = { de: ['Finanz & Controlling','Human Resources','Systemintegration','Marketing & Design','Allgemein'], en: ['Finance & Controlling','Human Resources','System Integration','Marketing & Design','General'] };
-  posthog.capture('form_submitted', { service: idx !== null ? names[currentLang][idx] : names[currentLang][4], lang: currentLang });
+  const n={de:['Finanz & Controlling','Human Resources','Systemintegration','Digitales Marketing','Allgemein'],en:['Finance & Controlling','Human Resources','System Integration','Digital Marketing','General']};
+  posthog.capture('form_submitted',{service:idx!==null?n[currentLang][idx]:n[currentLang][4],lang:currentLang});
 }
 
-// ── POSTHOG A/B TEST ──
+// A/B TEST
 function applyVariant(variant) {
-  const tiles = document.querySelector('.tiles');
-  const tilesFooter = document.querySelector('.tiles-footer');
-  const list = document.getElementById('serviceList');
-  const listFooter = document.getElementById('listFooter');
-  if (variant === 'list') {
-    tiles.style.display = 'none'; tilesFooter.style.display = 'none';
-    list.style.display = 'block'; listFooter.style.display = 'block';
-    posthog.capture('variant_seen', { variant: 'list' });
-  } else {
-    posthog.capture('variant_seen', { variant: 'tiles' });
-  }
+  const tiles=document.querySelector('.tiles'), tf=document.querySelector('.tiles-footer');
+  const list=document.getElementById('serviceList'), lf=document.getElementById('listFooter');
+  if(variant==='list'){tiles.style.display='none';tf.style.display='none';list.style.display='block';lf.style.display='block';posthog.capture('variant_seen',{variant:'list'});}
+  else{posthog.capture('variant_seen',{variant:'tiles'});}
 }
-posthog.onFeatureFlags(function() {
-  applyVariant(posthog.getFeatureFlag('leistungen-layout') === 'list' ? 'list' : 'tiles');
-});
-
-posthog.capture('pageview', { page: 'sinnvoll-dienstleistungen' });
+posthog.onFeatureFlags(function(){applyVariant(posthog.getFeatureFlag('leistungen-layout')==='list'?'list':'tiles');});
+posthog.capture('pageview',{page:'sinnvoll-dienstleistungen'});
 </script>
 </body>
 </html>
