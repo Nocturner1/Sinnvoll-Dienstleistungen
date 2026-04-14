@@ -452,6 +452,10 @@ const contactPanel = {
 
 let currentIdx = null;
 
+function safeCapture(event, props) {
+  try { if(window.posthog && posthog.capture) posthog.capture(event, props); } catch(e) {}
+}
+
 function buildPanelHTML(s) {
   const bullets = s.bullets.map(b => `<li class="${b.ci?'ci-item':''}">${b.t}</li>`).join('');
   const nameLbl    = currentLang==='de'?'Name':'Name';
@@ -503,7 +507,7 @@ function openContactPanel() {
   document.getElementById('panel').classList.add('open');
   document.body.style.overflow = 'hidden';
   document.getElementById('panel').scrollTop = 0;
-  posthog.capture('contact_panel_opened');
+  safeCapture('contact_panel_opened');
 }
 
 function closePanel() {
@@ -526,15 +530,26 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') closePanel(); }
 // POSTHOG TRACKING
 function trackPanelOpen(idx) {
   const n={de:['Finanz & Controlling','Human Resources','Systemintegration','Digitales Marketing'],en:['Finance & Controlling','Human Resources','System Integration','Digital Marketing']};
-  posthog.capture('panel_opened',{service:n[currentLang][idx],index:idx,lang:currentLang});
+  safeCapture('panel_opened',{service:n[currentLang][idx],index:idx,lang:currentLang});
 }
 function trackFormSubmit(idx) {
   const n={de:['Finanz & Controlling','Human Resources','Systemintegration','Digitales Marketing','Allgemein'],en:['Finance & Controlling','Human Resources','System Integration','Digital Marketing','General']};
-  posthog.capture('form_submitted',{service:idx!==null?n[currentLang][idx]:n[currentLang][4],lang:currentLang});
+  safeCapture('form_submitted',{service:idx!==null?n[currentLang][idx]:n[currentLang][4],lang:currentLang});
 }
 
 // A/B TEST
 function applyVariant(variant) {
-  const tiles=document.querySelector('.tiles'), tf=document.querySelector('.tiles-footer');
-  const list=document.getElementById('serviceList'), lf=document.getElementById('listFooter');
-  if(variant==='list'){tiles.style.display='none';tf.style
+  try {
+    const tiles=document.querySelector('.tiles'), tf=document.querySelector('.tiles-footer');
+    const list=document.getElementById('serviceList'), lf=document.getElementById('listFooter');
+    if(variant==='list'){tiles.style.display='none';tf.style.display='none';list.style.display='block';lf.style.display='block';safeCapture('variant_seen',{variant:'list'});}
+    else{safeCapture('variant_seen',{variant:'tiles'});}
+  } catch(e) {}
+}
+try {
+  posthog.onFeatureFlags(function(){applyVariant(posthog.getFeatureFlag('leistungen-layout')==='list'?'list':'tiles');});
+  safeCapture('pageview',{page:'sinnvoll-dienstleistungen'});
+} catch(e) {}
+</script>
+</body>
+</html>
