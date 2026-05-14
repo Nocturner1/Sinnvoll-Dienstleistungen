@@ -25,9 +25,127 @@
 <meta name="twitter:title" content="Gastro Beratung Schweiz | Sinnvoll Dienstleistungen"/>
 <meta name="twitter:description" content="Gastro-Experten aus 15 eigenen Betrieben. Finanz, HR, Systemintegration und digitales Marketing für Schweizer Gastronomie-KMUs."/>
 
-<!-- Schema.org -->
+<!-- Geo -->
+<meta name="geo.region" content="CH-LU"/>
+<meta name="geo.placename" content="Kriens, Luzern"/>
+<meta name="geo.position" content="47.0390;8.2730"/>
+<meta name="ICBM" content="47.0390, 8.2730"/>
+
+<!-- Dublin Core -->
+<meta name="DC.title" content="Gastro Beratung Schweiz | Sinnvoll Dienstleistungen"/>
+<meta name="DC.description" content="Gastro-Experten aus 15 eigenen Betrieben. Finanz, HR, Systemintegration und Marketing für Schweizer Gastronomie-KMUs."/>
+<meta name="DC.publisher" content="Sinnvoll Dienstleistungen GmbH"/>
+<meta name="DC.language" content="de-CH"/>
+<meta name="DC.subject" content="Gastronomie Beratung, Hotellerie Beratung, MEWS, Abacus, Zentralschweiz"/>
+
+<!-- Theme / App -->
+<meta name="theme-color" content="#000000"/>
+<meta name="application-name" content="Sinnvoll Dienstleistungen"/>
+
+<!-- LLM Crawler -->
+<link rel="llmstxt" href="/llms.txt"/>
+
+<!-- Schema.org @graph -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sinnvoll Dienstleistungen GmbH","description":"Beratung und Dienstleistungen für Gastronomie- und Hotelleriebetriebe in der Schweiz.","url":"https://www.sinnvollgastro.ch","email":"info@sinnvollgastro.ch","address":{"@type":"PostalAddress","streetAddress":"Amlehnstrasse 22","addressLocality":"Kriens","postalCode":"6010","addressCountry":"CH"},"areaServed":{"@type":"Country","name":"Schweiz"},"serviceType":["Gastronomie Beratung","Hotellerie Beratung","Finanz und Controlling","Human Resources","MEWS Systemintegration","Digitales Marketing","Revenue Management"],"knowsAbout":["MEWS","Abacus","Gastronomie","Hotellerie","Revenue Management"],"parentOrganization":{"@type":"Organization","name":"Sinnvoll Gastro","url":"https://www.sinnvollgastro.ch"}}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://www.sinnvollgastro.ch/#org",
+      "name": "Sinnvoll Dienstleistungen GmbH",
+      "legalName": "Sinnvoll Dienstleistungen GmbH",
+      "description": "Spezialisierte Beratung für Gastronomie- und Hotelleriebetriebe in der Schweiz – aus der Praxis von 15 eigenen Betrieben in der Zentralschweiz.",
+      "url": "https://www.sinnvollgastro.ch",
+      "email": "info@sinnvollgastro.ch",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Amlehnstrasse 22",
+        "addressLocality": "Kriens",
+        "postalCode": "6010",
+        "addressRegion": "Luzern",
+        "addressCountry": "CH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.039,
+        "longitude": 8.273
+      },
+      "areaServed": {"@type": "Country", "name": "Schweiz"},
+      "knowsLanguage": ["de", "en"],
+      "knowsAbout": ["MEWS", "Abacus", "Gastronomieberatung", "Hotellerie", "Revenue Management", "Systemintegration Hotel", "HR Gastronomie"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Beratungsdienstleistungen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Finanz & Controlling",
+              "description": "Finanzbuchhaltung und Reporting (Abacus), Debitorenbuchhaltung, Jahresabschluss, Budgetierung, Kennzahlenanalyse und Steuerberatung für Gastronomiebetriebe."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Human Resources",
+              "description": "Recruiting, strukturiertes Onboarding, Lohnwesen, Schweizer Arbeitsrecht, Mitarbeiterentwicklung und Führungskultur für Gastronomie und Hotellerie."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Systemintegration",
+              "description": "MEWS-Implementierung, digitale Guest Journey, MEWS Kiosk, POS-Anbindungen, Prozessautomatisierung, Revenue Management und KI-Tool-Einführung für Hotels."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Digitales Marketing",
+              "description": "Positionierung auf Booking.com, Google und TripAdvisor, SEO, Google Business Optimierung und saisonales Erfolgsreporting für Gastronomie."
+            }
+          }
+        ]
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Sinnvoll Gastro",
+        "url": "https://www.sinnvollgastro.ch"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.sinnvollgastro.ch/#website",
+      "url": "https://www.sinnvollgastro.ch",
+      "name": "Sinnvoll Dienstleistungen",
+      "description": "Gastro-Beratung aus der Praxis für die Praxis – Zentralschweiz.",
+      "inLanguage": ["de-CH", "en"],
+      "publisher": {"@id": "https://www.sinnvollgastro.ch/#org"}
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.sinnvollgastro.ch/dienstleistungen/#page",
+      "url": "https://www.sinnvollgastro.ch/dienstleistungen",
+      "name": "Gastro Beratung Schweiz – Finanz, HR, Systemintegration & Marketing",
+      "description": "Gastro-Experten aus 15 eigenen Betrieben. Wir unterstützen Gastronomie- und Hotellerie-KMUs in Finanzen, HR, Systemintegration und digitalem Marketing.",
+      "inLanguage": "de-CH",
+      "isPartOf": {"@id": "https://www.sinnvollgastro.ch/#website"},
+      "about": {"@id": "https://www.sinnvollgastro.ch/#org"},
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sinnvollgastro.ch"},
+          {"@type": "ListItem", "position": 2, "name": "Dienstleistungen", "item": "https://www.sinnvollgastro.ch/dienstleistungen"}
+        ]
+      }
+    }
+  ]
+}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -359,7 +477,7 @@ footer{background:var(--black);color:var(--white);padding:2.5rem 2.5rem 2rem;dis
     <span>© 2025 Sinnvoll Dienstleistungen GmbH · Kriens</span>
     <span style="display:flex;gap:1.2rem;">
       <a onclick="document.getElementById('impressumOverlay').classList.add('open')" data-de="Impressum" data-en="Legal notice">Impressum</a>
-      <a href="#" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
+      <a onclick="document.getElementById('datenschutzOverlay').classList.add('open')" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
     </span>
   </div>
 </footer>
@@ -374,6 +492,43 @@ footer{background:var(--black);color:var(--white);padding:2.5rem 2.5rem 2rem;dis
       <strong>Sinnvoll Dienstleistungen GmbH</strong><br/>
       Amlehnstrasse 22<br/>6010 Kriens<br/><br/>
       <a href="mailto:info@sinnvollgastro.ch">info@sinnvollgastro.ch</a>
+    </p>
+  </div>
+</div>
+
+<!-- DATENSCHUTZ -->
+<div class="impressum-overlay" id="datenschutzOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="impressum-box" style="max-width:560px;max-height:82vh;overflow-y:auto;">
+    <button class="impressum-close" onclick="document.getElementById('datenschutzOverlay').classList.remove('open')">✕</button>
+    <h3 data-de="Datenschutzerklärung" data-en="Privacy Policy">Datenschutzerklärung</h3>
+    <p style="font-size:0.85rem;line-height:1.85;color:#333;">
+
+      <strong>Verantwortliche Stelle</strong><br/>
+      Sinnvoll Dienstleistungen GmbH, Amlehnstrasse 22, 6010 Kriens<br/>
+      <a href="mailto:info@sinnvollgastro.ch">info@sinnvollgastro.ch</a><br/><br/>
+
+      <strong>Erhobene Daten &amp; Zweck</strong><br/>
+      Beim Absenden des Kontaktformulars werden Name, Betriebsname, E-Mail-Adresse und Nachricht erhoben. Diese Daten werden ausschliesslich zur Bearbeitung deiner Anfrage verwendet und anschliessend gelöscht. Es findet keine Weitergabe an Dritte zu Werbezwecken statt.<br/><br/>
+
+      <strong>Formularversand</strong><br/>
+      Formulardaten werden über <em>Formspree Inc.</em> (USA) übermittelt. Formspree ist nach dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">formspree.io/legal/privacy-policy</a><br/><br/>
+
+      <strong>Analyse (PostHog)</strong><br/>
+      Diese Website nutzt PostHog (EU-Server, Frankfurt) zur Analyse des Nutzungsverhaltens. Es werden keine personenbezogenen Daten ohne Identifikation gespeichert. PostHog setzt keine Marketing-Cookies. Weitere Informationen: <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a><br/><br/>
+
+      <strong>Google Fonts</strong><br/>
+      Diese Website lädt Schriftarten von Google Fonts (Google LLC, USA). Dabei wird deine IP-Adresse an Google übermittelt. Rechtsgrundlage: berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSG).<br/><br/>
+
+      <strong>Cookies</strong><br/>
+      Diese Website setzt ausschliesslich funktionale Cookies (PostHog Session). Es werden keine Werbe- oder Tracking-Cookies von Drittanbietern gesetzt.<br/><br/>
+
+      <strong>Deine Rechte (nDSG / DSGVO)</strong><br/>
+      Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten. Anfragen richten an: <a href="mailto:info@sinnvollgastro.ch">info@sinnvollgastro.ch</a><br/><br/>
+
+      <strong>Speicherdauer</strong><br/>
+      Kontaktanfragen werden nach abgeschlossener Bearbeitung, spätestens nach 12 Monaten, gelöscht.<br/><br/>
+
+      <em style="font-size:0.8rem;color:#999;">Stand: Mai 2025 · Gilt für sinnvollgastro.ch</em>
     </p>
   </div>
 </div>
