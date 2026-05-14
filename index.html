@@ -538,11 +538,17 @@ function safeCapture(event, props) {
   try { if(window.posthog && posthog.capture) posthog.capture(event, props); } catch(e) {}
 }
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mgodbdkz';
+
 function buildPanelHTML(s) {
+  const svcName = currentIdx !== null ? services[currentLang][currentIdx].title : (currentLang==='de'?'Allgemein':'General');
   const bullets = s.bullets.map(b => `<li class="${b.ci?'ci-item':''}">${b.t}</li>`).join('');
   const nameLbl    = currentLang==='de'?'Name':'Name';
   const betriebLbl = currentLang==='de'?'Betrieb':'Establishment';
   const msgLbl     = currentLang==='de'?'Nachricht':'Message';
+  const subject    = currentLang==='de'
+    ? `Anfrage: ${svcName}`
+    : `Request: ${svcName}`;
   return `
     <div class="panel-lead">${s.lead}</div>
     <p class="panel-text">${s.text}</p>
@@ -550,17 +556,20 @@ function buildPanelHTML(s) {
     <hr class="panel-divider"/>
     <div class="panel-form-title">${s.formTitle}</div>
     <form onsubmit="submitForm(event,this)">
+      <input type="hidden" name="_subject" value="${subject}"/>
+      <input type="hidden" name="dienst" value="${svcName}"/>
       <div class="form-row">
-        <div class="form-field"><label>${nameLbl}</label><input type="text" placeholder="${s.namePh}" required/></div>
-        <div class="form-field"><label>${betriebLbl}</label><input type="text" placeholder="${s.betriebPh}"/></div>
+        <div class="form-field"><label>${nameLbl}</label><input type="text" name="name" placeholder="${s.namePh}" required/></div>
+        <div class="form-field"><label>${betriebLbl}</label><input type="text" name="betrieb" placeholder="${s.betriebPh}"/></div>
       </div>
-      <div class="form-field"><label>E-Mail</label><input type="email" placeholder="${s.emailPh}" required/></div>
-      <div class="form-field"><label>${msgLbl}</label><textarea placeholder="${s.msgPh}"></textarea></div>
+      <div class="form-field"><label>E-Mail</label><input type="email" name="email" placeholder="${s.emailPh}" required/></div>
+      <div class="form-field"><label>${msgLbl}</label><textarea name="nachricht" placeholder="${s.msgPh}"></textarea></div>
       <div class="form-submit">
         <button type="submit" class="btn-submit">${s.btnText}</button>
         <p class="form-hint">${s.hintText.replace('\n','<br/>')}</p>
       </div>
       <div class="form-ok">${s.okText.replace('\n','<br/>')}</div>
+      <div class="form-err" style="display:none;margin-top:1rem;font-family:'Barlow',sans-serif;font-size:0.9rem;color:#c00;border-left:3px solid #c00;padding-left:1rem;">${currentLang==='de'?'Etwas ist schiefgelaufen. Bitte versuch es nochmals oder schreib uns direkt an <a href="mailto:info@sinnvollgastro.ch">info@sinnvollgastro.ch</a>.':'Something went wrong. Please try again or contact us directly at <a href="mailto:info@sinnvollgastro.ch">info@sinnvollgastro.ch</a>.'}</div>
     </form>`;
 }
 
@@ -598,14 +607,40 @@ function closePanel() {
   document.body.style.overflow = '';
 }
 
-function submitForm(e, form) {
+async function submitForm(e, form) {
   e.preventDefault();
-  form.querySelector('.form-ok').style.display = 'block';
   const btn = form.querySelector('.btn-submit');
-  btn.textContent = currentLang==='de' ? 'Gesendet ✓' : 'Sent ✓';
-  btn.disabled = true; btn.style.opacity = '0.4';
-  const svcName = currentIdx !== null ? services[currentLang][currentIdx].title : (currentLang==='de'?'Allgemein':'General');
-  safeCapture('form_submitted',{service:svcName,lang:currentLang});
+  const okEl = form.querySelector('.form-ok');
+  const errEl = form.querySelector('.form-err');
+  const sendingText = currentLang==='de' ? 'Wird gesendet…' : 'Sending…';
+
+  btn.textContent = sendingText;
+  btn.disabled = true;
+  btn.style.opacity = '0.5';
+  okEl.style.display = 'none';
+  errEl.style.display = 'none';
+
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      okEl.style.display = 'block';
+      btn.textContent = currentLang==='de' ? 'Gesendet ✓' : 'Sent ✓';
+      btn.style.opacity = '0.4';
+      const svcName = currentIdx !== null ? services[currentLang][currentIdx].title : (currentLang==='de'?'Allgemein':'General');
+      safeCapture('form_submitted', {service:svcName, lang:currentLang});
+    } else {
+      throw new Error('response not ok');
+    }
+  } catch(err) {
+    errEl.style.display = 'block';
+    btn.textContent = currentLang==='de' ? 'Nochmals versuchen' : 'Try again';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  }
 }
 
 document.addEventListener('keydown', e => { if(e.key==='Escape') closePanel(); });
