@@ -474,7 +474,7 @@ footer{background:var(--black);color:var(--white);padding:2.5rem 2.5rem 2rem;dis
     <a href="mailto:info@sinnvollgastro.ch">info@sinnvollgastro.ch</a>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Sinnvoll Dienstleistungen GmbH · Kriens</span>
+    <span>© 2026 Sinnvoll Dienstleistungen GmbH · Kriens</span>
     <span style="display:flex;gap:1.2rem;">
       <a onclick="document.getElementById('impressumOverlay').classList.add('open')" data-de="Impressum" data-en="Legal notice">Impressum</a>
       <a onclick="document.getElementById('datenschutzOverlay').classList.add('open')" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
@@ -517,7 +517,7 @@ footer{background:var(--black);color:var(--white);padding:2.5rem 2.5rem 2rem;dis
       Diese Website nutzt PostHog (EU-Server, Frankfurt) zur Analyse des Nutzungsverhaltens. Es werden keine personenbezogenen Daten ohne Identifikation gespeichert. PostHog setzt keine Marketing-Cookies. Weitere Informationen: <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a><br/><br/>
 
       <strong>Google Fonts</strong><br/>
-      Diese Website lädt Schriftarten von Google Fonts (Google LLC, USA). Dabei wird deine IP-Adresse an Google übermittelt. Rechtsgrundlage: berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSG).<br/><br/>
+      Diese Website lädt Schriftarten von Google Fonts (Google LLC, USA). Dabei wird deine IP-Adresse an Google übermittelt. Rechtsgrundlage: berechtigtes Interesse (Art. 31 Abs. 1 nDSG bzw. Art. 6 Abs. 1 lit. f DSGVO).<br/><br/>
 
       <strong>Cookies</strong><br/>
       Diese Website setzt ausschliesslich funktionale Cookies (PostHog Session). Es werden keine Werbe- oder Tracking-Cookies von Drittanbietern gesetzt.<br/><br/>
@@ -528,7 +528,7 @@ footer{background:var(--black);color:var(--white);padding:2.5rem 2.5rem 2rem;dis
       <strong>Speicherdauer</strong><br/>
       Kontaktanfragen werden nach abgeschlossener Bearbeitung, spätestens nach 12 Monaten, gelöscht.<br/><br/>
 
-      <em style="font-size:0.8rem;color:#999;">Stand: Mai 2025 · Gilt für sinnvollgastro.ch</em>
+      <em style="font-size:0.8rem;color:#999;">Stand: Juli 2026 · Gilt für sinnvollgastro.ch</em>
     </p>
   </div>
 </div>
@@ -798,7 +798,13 @@ async function submitForm(e, form) {
   }
 }
 
-document.addEventListener('keydown', e => { if(e.key==='Escape') closePanel(); });
+document.addEventListener('keydown', e => {
+  if(e.key==='Escape'){
+    closePanel();
+    document.getElementById('impressumOverlay').classList.remove('open');
+    document.getElementById('datenschutzOverlay').classList.remove('open');
+  }
+});
 
 // A/B TEST
 function applyVariant(variant) {
